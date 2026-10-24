@@ -1,0 +1,588 @@
+/* ============================================================
+
+   DESIGN SYSTEM — PhysicsCoach Pro
+   Inspired by Professor Academy (India's Premier Academic Coaching Aesthetic)
+   Colors: Deep Imperial Purple, Royal Violet, Energetic Orange, Crisp White Canvas
+   ============================================================ */
+
+:root {
+  /* Brand Primary: Imperial Purple & Royal Violet */
+  --color-primary:          #3B0C75;
+  --color-primary-hover:    #261559;
+  --color-primary-light:    #673DE6;
+  --color-primary-subtle:   rgba(59, 12, 117, 0.08);
+  --color-primary-gradient: linear-gradient(135deg, #1E1B4B 0%, #3B0C75 50%, #590FB3 100%);
+  --color-purple-mesh:      linear-gradient(135deg, #261559 0%, #3B0C75 60%, #673DE6 100%);
+
+  /* Brand Accent: High-Energy Action Orange & Gold */
+  --color-accent:           #FF6600;
+  --color-accent-hover:     #E65C00;
+  --color-accent-light:     #FF8533;
+  --color-accent-gradient:  linear-gradient(135deg, #FF7A00 0%, #FF4500 100%);
+  --color-gold:             #FFB800;
+  --color-gold-light:       #FFF4CC;
+
+  /* Aliases for backwards compatibility */
+  --primary:                var(--color-primary);
+  --primary-light:          var(--color-primary-light);
+  --primary-dark:           var(--color-primary-hover);
+  --secondary:              #673DE6;
+  --accent:                 var(--color-accent);
+
+  /* Backgrounds: Clean, Bright, Authoritative Academic Canvas */
+  --color-bg:               #F8FAFC;
+  --color-bg-subtle:        #F1F5F9;
+  --color-surface:          #FFFFFF;
+  --color-surface-hover:    #F8F9FE;
+  --color-surface-alt:      #F5F3FF;
+  --bg:                     var(--color-bg);
+  --surface:                var(--color-surface);
+  --surface-2:              var(--color-surface-alt);
+  --surface-3:              #EDE9FE;
+
+  /* Status Colors */
+  --color-success:          #16A34A;
+  --color-success-bg:       rgba(22, 163, 74, 0.1);
+  --color-error:            #DC2626;
+  --color-error-bg:         rgba(220, 38, 38, 0.1);
+  --color-warning:          #D97706;
+  --color-warning-bg:       rgba(217, 119, 6, 0.1);
+  --color-info:             #0284C7;
+  --color-info-bg:          rgba(2, 132, 199, 0.1);
+
+  --success:                var(--color-success);
+  --success-bg:             var(--color-success-bg);
+  --error:                  var(--color-error);
+  --error-bg:               var(--color-error-bg);
+  --warning:                var(--color-warning);
+  --warning-bg:             var(--color-warning-bg);
+  --info:                   var(--color-info);
+  --info-bg:                var(--color-info-bg);
+
+  /* Text & Contrast: Deep Charcoal & Midnight */
+  --color-text-primary:     #0F172A;
+  --color-text-secondary:   #475569;
+  --color-text-muted:       #64748B;
+  --color-text-light:       #94A3B8;
+  --color-text-inverse:     #FFFFFF;
+  --color-text-purple:      #3B0C75;
+
+  --text:                   var(--color-text-primary);
+  --text-secondary:         var(--color-text-secondary);
+  --text-muted:             var(--color-text-muted);
+  --text-inverse:           var(--color-text-inverse);
+
+  /* Borders */
+  --color-border:           #E2E8F0;
+  --color-border-light:     #F1F5F9;
+  --color-border-purple:    #DDD6FE;
+  --border:                 var(--color-border);
+  --border-light:           var(--color-border-light);
+
+  /* Radius */
+  --radius-xs:              4px;
+  --radius-sm:              8px;
+  --radius-md:              12px;
+  --radius-lg:              16px;
+  --radius-xl:              24px;
+  --radius-full:            9999px;
+
+  /* Shadows: Modern, Clean & Elevated */
+  --shadow-sm:              0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md:              0 8px 24px rgba(59, 12, 117, 0.08);
+  --shadow-lg:              0 16px 36px rgba(59, 12, 117, 0.12);
+  --shadow-xl:              0 24px 48px rgba(38, 21, 89, 0.16);
+  --shadow-card:            0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-orange:          0 8px 20px rgba(255, 102, 0, 0.28);
+  --shadow-glow:            0 0 24px rgba(103, 61, 230, 0.3);
+  --shadow-glow-accent:     0 0 24px rgba(255, 102, 0, 0.35);
+
+  /* Transitions */
+  --transition:             all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast:        all 0.15s ease-in-out;
+  --transition-normal:      all 0.25s ease-in-out;
+  --transition-slow:        all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --max-width:              1280px;
+  --sidebar-width:          260px;
+  --navbar-height:          72px;
+
+  /* Typography: Plus Jakarta Sans / Poppins */
+  --font:                   'Plus Jakarta Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE STYLES
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font);
+}
+
+input, textarea, select {
+  font-family: var(--font);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(1.85rem, 4.5vw, 2.75rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.15rem); }
+h3 { font-size: clamp(1.25rem, 2.8vw, 1.6rem); }
+h4 { font-size: clamp(1.1rem, 2.2vw, 1.25rem); }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 0.95rem; }
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* High-contrast rules for dark surfaces, heroes, sidebars, and footers */
+[class*="sidebar"],
+[class*="hero"],
+[class*="leftPanel"],
+[class*="footer"],
+[class*="Footer"],
+.dark,
+[data-theme="dark"] {
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #E2E8F0;
+  --color-text-muted: #CBD5E1;
+  --text: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #CBD5E1;
+}
+
+[class*="sidebar"] p,
+[class*="hero"] p,
+[class*="leftPanel"] p,
+[class*="footer"] p,
+[class*="Footer"] p,
+.dark p,
+[data-theme="dark"] p {
+  color: #E2E8F0;
+}
+
+/* ============================================================
+   BUTTON DESIGN SYSTEM
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  border: 1.5px solid transparent;
+  padding: 0.75rem 1.65rem;
+  min-height: 46px;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(103, 61, 230, 0.45);
+  outline-offset: 2px;
+}
+
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  min-height: 36px;
+  border-radius: 6px;
+}
+
+.btn-md {
+  padding: 0.7rem 1.4rem;
+  font-size: 0.92rem;
+  min-height: 44px;
+}
+
+.btn-lg {
+  padding: 0.95rem 2rem;
+  font-size: 1.05rem;
+  min-height: 52px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.btn-full {
+  width: 100%;
+  display: flex;
+}
+
+.btn-primary {
+  background: var(--color-accent-gradient);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  box-shadow: var(--shadow-orange);
+  border: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 102, 0, 0.4);
+}
+
+.btn-purple {
+  background: var(--color-primary);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(59, 12, 117, 0.25);
+  border: none;
+}
+
+.btn-purple:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(59, 12, 117, 0.35);
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  color: var(--color-primary) !important;
+  font-weight: 700;
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-surface-alt);
+  transform: translateY(-2px);
+  border-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+  background: #FFFFFF;
+  color: #0F172A !important;
+  font-weight: 700;
+  border: 1.5px solid #CBD5E1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--color-surface-alt);
+  border-color: var(--color-primary);
+  color: var(--color-primary) !important;
+  transform: translateY(-2px);
+}
+
+/* Outline buttons inside dark surfaces or heroes */
+[class*="hero"] .btn-outline,
+[class*="sidebar"] .btn-outline,
+.dark .btn-outline,
+[data-theme="dark"] .btn-outline {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+[class*="hero"] .btn-outline:hover:not(:disabled),
+[class*="sidebar"] .btn-outline:hover:not(:disabled),
+.dark .btn-outline:hover:not(:disabled),
+[data-theme="dark"] .btn-outline:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+}
+
+.btn-loading,
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================================
+   FORM DESIGN SYSTEM
+   ============================================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1E293B;
+  letter-spacing: -0.01em;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1.15rem;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  color: #0F172A;
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+.form-input:hover {
+  border-color: #94A3B8;
+}
+
+.form-input:focus {
+  border-color: #3B0C75;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3.5px rgba(59, 12, 117, 0.12);
+}
+
+.form-input.error {
+  border-color: #DC2626 !important;
+  background-color: #FEF2F2;
+}
+
+.form-input.error:focus {
+  box-shadow: 0 0 0 3.5px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Custom Dropdown Styling */
+select.form-input,
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #FFFFFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233B0C75' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 16px;
+  padding-right: 2.75rem !important;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+select.form-input:focus,
+.form-select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C2410C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.form-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #DC2626;
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   BADGES & HIGHLIGHT TAGS
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.badge-primary {
+  background: rgba(59, 12, 117, 0.1);
+  color: #3B0C75;
+  border: 1px solid rgba(59, 12, 117, 0.25);
+}
+
+.badge-success {
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.badge-warning {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.badge-error {
+  background: #FEE2E2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+}
+
+.badge-info {
+  background: #E0F2FE;
+  color: #0369A1;
+  border: 1px solid #BAE6FD;
+}
+
+.badge-live {
+  background: #FEE2E2;
+  color: #DC2626;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-discount {
+  background: #FEF3C7;
+  color: #B45309;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.badge-category {
+  background: #EDE9FE;
+  color: #673DE6;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   PULSE & ANIMATIONS
+   ============================================================ */
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #DC2626;
+  border-radius: 50%;
+  animation: pulseDot 1.4s infinite;
+  display: inline-block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Accessibility screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* WCAG 2.2 Touch Target Accessibility */
+input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+select,
+textarea,
+.form-input {
+  min-height: 44px;
+}
+
+

@@ -10,8 +10,17 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# testing & qa artifacts
 /coverage
+/playwright-report/
+/test-results/
+/site-qa/node_modules/
+/site-qa/test-results/
+/site-qa/qa-report/
+/site-qa/.auth/
+/site-qa/.cache/
+/site-qa/screenshots/
+*.zip
 
 # next.js
 /.next/
@@ -32,6 +41,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel

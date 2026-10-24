@@ -1,0 +1,294 @@
+/* src/app/student/exams/[examId]/attempt/page.module.css */
+.page {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: column;
+  background: #0B1120;
+}
+
+/* Header */
+.testHeader {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.testInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.testTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.qCounter {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: var(--surface-2);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+.timerBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+}
+
+.timerText {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timerAlert {
+  color: var(--error) !important;
+  animation: pulse 1s infinite;
+}
+
+/* Main Grid */
+.mainGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Question Card */
+.questionCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.qTopRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.qBadge {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary-light);
+  background: rgba(0, 86, 210, 0.15);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.marksBadge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.flagBtn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.flagged {
+  color: #f59e0b;
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.questionBody {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Options */
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.optionItem:hover {
+  border-color: var(--border-light);
+  background: var(--surface-3);
+}
+
+.optionSelected {
+  border-color: var(--primary);
+  background: rgba(0, 86, 210, 0.12);
+  box-shadow: 0 0 14px rgba(0, 86, 210, 0.25);
+}
+
+.optionCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.optionSelected .optionCircle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.optionText {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.qNavRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Palette Sidebar */
+.paletteCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paletteTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotAnswered { background: var(--success); }
+.dotFlagged  { background: #f59e0b; }
+.dotUnanswered { background: var(--surface-3); }
+
+.paletteGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.paletteBtn {
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btnDefault {
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btnCurrent {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 86, 210, 0.5);
+  border: 2px solid #fff;
+}
+
+.btnAnswered {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.btnFlagged {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 900px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}

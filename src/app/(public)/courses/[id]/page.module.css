@@ -1,0 +1,492 @@
+/* src/app/(public)/courses/[id]/page.module.css */
+
+.page {
+  min-height: 100vh;
+  background-color: var(--color-bg, #F8FAFC);
+}
+
+.hero {
+  background: linear-gradient(135deg, #1E1B4B 0%, #3B0C75 55%, #4C1D95 100%);
+  color: #FFFFFF;
+  padding: 3.5rem 0 4.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(103, 61, 230, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #CBD5E1;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: #E2E8F0;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 4px;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-accent, #FF6600);
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.categoryBadge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.liveBadge {
+  background: #DCFCE7;
+  color: #166534;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  background-color: #16A34A;
+  border-radius: 50%;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+.courseTitle {
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.courseSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #E2E8F0;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+}
+
+.metaGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.88rem;
+  color: #E2E8F0;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 500;
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2.5rem;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.highlightTile {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 0.85rem;
+}
+
+.highlightIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.highlightTile h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin: 0 0 0.25rem 0;
+}
+
+.highlightTile p {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Units & Curriculum Accordion */
+.unitList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.unitCard {
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.unitCard:hover {
+  border-color: #CBD5E1;
+}
+
+.unitHeader {
+  background: #F8FAFC;
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.unitHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.unitTag {
+  background: #EDE9FE;
+  color: #3B0C75;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.unitTitle {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: #1E293B;
+}
+
+.unitBody {
+  padding: 1.25rem 1.5rem;
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+}
+
+.unitDesc {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.topicsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.topicChip {
+  background: #F1F5F9;
+  color: #334155;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Sidebar Card */
+.sidebarCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.enrollCard {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 90px;
+}
+
+.pricingBlock {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed #E2E8F0;
+  margin-bottom: 1.25rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.currentPrice {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.originalPrice {
+  font-size: 1.1rem;
+  color: #475569;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.discountChip {
+  background: #FEF3C7;
+  color: #B45309;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.taxNotice {
+  font-size: 0.78rem;
+  color: #64748B;
+  display: block;
+}
+
+.featuresChecklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.featureLi {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.checkMark {
+  color: #16A34A;
+  font-weight: 800;
+}
+
+.enrollBtnLarge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background: linear-gradient(135deg, #FF7A00 0%, #FF5500 100%);
+  color: #FFFFFF !important;
+  font-weight: 800;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  margin-bottom: 0.85rem;
+}
+
+.enrollBtnLarge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 102, 0, 0.45);
+}
+
+.syllabusBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.syllabusBtn:hover {
+  background: #EDE9FE;
+  border-color: #673DE6;
+  color: #3B0C75;
+}
+
+.helplineNote {
+  margin-top: 1.25rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid #F1F5F9;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #64748B;
+}
+
+.helplineNote a {
+  color: #3B0C75;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.helplineNote a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+    margin-top: -1.5rem;
+    gap: 2rem;
+  }
+
+  .enrollCard {
+    position: static;
+  }
+
+  .courseTitle {
+    font-size: 1.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .courseTitle {
+    font-size: 1.55rem;
+    line-height: 1.25;
+  }
+
+  .metaRow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .enrollCard {
+    padding: 1.25rem;
+  }
+
+  .currentPrice {
+    font-size: 1.85rem;
+  }
+
+  .unitHeader {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .unitBody {
+    padding: 1rem;
+  }
+
+  .enrollBtnLarge {
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+  }
+}

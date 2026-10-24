@@ -1,0 +1,321 @@
+/* src/app/student/omr/page.module.css */
+.page {
+  padding: 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 0.35rem;
+}
+
+.subtitle {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Upload Card */
+.uploadCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cardDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.dropZone {
+  border: 2px dashed var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background: var(--surface-2);
+  transition: var(--transition);
+  position: relative;
+}
+
+.dropZone:hover {
+  border-color: var(--primary);
+  background: rgba(0, 86, 210, 0.05);
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 86, 210, 0.15);
+  color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropPrompt {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dropSub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.samplePrompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Results Card */
+.resultsCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.idleState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.idleState h3 {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.idleState p {
+  font-size: 0.875rem;
+  max-width: 320px;
+}
+
+.scanningBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.scanPulse {
+  color: var(--primary-light);
+  animation: pulse 1.5s infinite;
+}
+
+.scanBeam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 12px var(--accent);
+  animation: scanMove 2s linear infinite;
+}
+
+/* Evaluation Box */
+.evaluationBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.scoreRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+}
+
+.scoreMetric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.metricVal {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.gridHeading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.bubbleList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.bubbleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+}
+
+.rowCorrect {
+  border-left: 3px solid var(--success);
+}
+
+.rowWrong {
+  border-left: 3px solid var(--error);
+}
+
+.qNum {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 36px;
+}
+
+.bubblesGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bubble {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.bubbleBlank {
+  border: 1.5px solid var(--border-light);
+  color: var(--text-muted);
+}
+
+.bubbleCorrect {
+  background: var(--success);
+  color: #fff;
+  border: 1.5px solid var(--success);
+}
+
+.bubbleWrong {
+  background: var(--error);
+  color: #fff;
+  border: 1.5px solid var(--error);
+}
+
+.bubbleKey {
+  border: 1.5px dashed var(--accent);
+  color: var(--accent);
+}
+
+.rowResult {
+  width: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@keyframes scanMove {
+  0%   { top: 0; }
+  50%  { top: 100%; }
+  100% { top: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+@media (max-width: 900px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}

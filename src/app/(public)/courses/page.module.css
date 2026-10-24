@@ -1,0 +1,184 @@
+/* src/app/(public)/courses/page.module.css */
+.page {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.hero {
+  padding: 4.5rem 1.5rem 3rem;
+  background: linear-gradient(135deg, #1E1B4B 0%, #3B0C75 50%, #590FB3 100%);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: #E2E8F0;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Filters Bar */
+.filtersBar {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  font-size: 1.1rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 3rem;
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  color: #0F172A;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #3B0C75;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(59, 12, 117, 0.12);
+}
+
+.chipRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.chips {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  background: #F5F3FF;
+  border-color: #673DE6;
+  color: #3B0C75;
+}
+
+.chipActive {
+  background: #3B0C75 !important;
+  color: #FFFFFF !important;
+  border-color: #3B0C75 !important;
+  box-shadow: 0 4px 12px rgba(59, 12, 117, 0.25);
+}
+
+.levelSelect {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  color: #1E1B4B;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.25rem 2.25rem;
+  }
+  .container {
+    padding: 1.5rem 1.25rem 3.5rem;
+    gap: 1.75rem;
+  }
+  .filtersBar {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+  .chipRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+  .levelSelect {
+    width: 100%;
+  }
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero {
+    padding: 2.25rem 1rem 1.75rem;
+  }
+  .heroTitle {
+    font-size: 1.85rem;
+  }
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+  .chip {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

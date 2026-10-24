@@ -1,0 +1,482 @@
+/* src/app/register/page.module.css */
+
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #F8FAFC;
+}
+
+/* Top Auth Nav */
+.authNav {
+  background: #120D2C;
+  padding: 0.85rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navInner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.navBrand {
+  color: #FFFFFF;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navLinks a {
+  color: #CBD5E1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 4px 8px;
+}
+
+.navLinks a:hover {
+  color: #FFFFFF;
+}
+
+/* Main Split Page Layout */
+.page {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  min-height: calc(100vh - 60px);
+}
+
+/* Left Hero Brand Panel */
+.leftPanel {
+  background: linear-gradient(135deg, #120D2C 0%, #1E1B4B 40%, #3B0C75 100%);
+  color: #FFFFFF;
+  padding: 4rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.leftPanel::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 102, 0, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoAccent {
+  color: #FFB800;
+}
+
+.heroText {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 460px;
+}
+
+.heroText h2 {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+}
+
+.heroText p {
+  font-size: 1.05rem;
+  color: #E2E8F0;
+  line-height: 1.65;
+}
+
+.benefitList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.benefitItem {
+  font-size: 0.95rem;
+  color: #F8FAFC;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 600;
+}
+
+/* Right Form Panel */
+.rightPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 3rem;
+  background: #FFFFFF;
+  overflow-y: auto;
+}
+
+.formContainer {
+  max-width: 580px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Progress Header */
+.progressHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stepCounter {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #3B0C75;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3B0C75 0%, #FF6600 100%);
+  border-radius: 9999px;
+  transition: width 0.35s ease;
+}
+
+.formAlert {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #DC2626;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Step Content */
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stepTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.stepSub {
+  font-size: 0.95rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* Role Grid (Step 1) */
+.roleGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.roleCard {
+  border: 2px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1.6rem 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.roleCard:hover {
+  border-color: #3B0C75;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 12, 117, 0.08);
+}
+
+.roleActive {
+  border-color: #3B0C75 !important;
+  background: #F5F3FF !important;
+  box-shadow: 0 0 0 2px #3B0C75, 0 8px 24px rgba(59, 12, 117, 0.12) !important;
+}
+
+.roleIcon {
+  color: #3B0C75;
+  margin-bottom: 0.5rem;
+}
+
+.roleCard h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.3;
+}
+
+.roleCard p {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+/* Password Toggle Wrapper */
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.passwordWrapper input {
+  padding-right: 3rem !important;
+}
+
+.passwordToggle,
+.eyeBtn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748B;
+  transition: color 0.15s ease;
+  padding: 0;
+  border-radius: 6px;
+}
+
+.passwordToggle:hover,
+.eyeBtn:hover {
+  color: #0F172A;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Review Step (Step 4) */
+.reviewCard {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reviewRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #EDF2F7;
+  padding-bottom: 0.6rem;
+}
+
+.reviewRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reviewLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.reviewValue {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.termsNote {
+  font-size: 0.82rem;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+/* Button Navigation Row */
+.btnRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.footerPrompt {
+  text-align: center;
+  font-size: 0.92rem;
+  color: #475569;
+}
+
+.link {
+  color: #C2410C;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #9A3412;
+}
+
+/* Success Card */
+.successContainer {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.successCard {
+  max-width: 520px;
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.iconCirclePending {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #FEF3C7;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconCircleSuccess {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #DCFCE7;
+  color: #16A34A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.successDesc {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.infoBox {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: left;
+  font-size: 0.88rem;
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .leftPanel {
+    display: none;
+  }
+  .rightPanel {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .roleGrid {
+    grid-template-columns: 1fr;
+  }
+  .stepTitle {
+    font-size: 1.65rem;
+  }
+}

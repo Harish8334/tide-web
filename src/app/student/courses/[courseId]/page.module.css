@@ -1,0 +1,325 @@
+/* src/app/student/courses/[courseId]/page.module.css */
+.page {
+  padding: 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.backLink:hover {
+  color: var(--text);
+  transform: translateX(-3px);
+}
+
+/* Hero Card */
+.heroCard {
+  background: linear-gradient(135deg, #1E1B4B 0%, #3B0C75 55%, #590FB3 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(59, 12, 117, 0.15);
+}
+
+.heroBadges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.courseTitle {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.courseDesc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #E2E8F0;
+  max-width: 880px;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #CBD5E1;
+}
+
+.metaItem strong {
+  color: var(--text);
+}
+
+/* Tab Navigation */
+.tabNav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.tabItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.tabItem:hover {
+  color: var(--text);
+}
+
+.tabItemActive {
+  color: var(--primary-light);
+  border-bottom-color: var(--primary);
+}
+
+/* Overview Section */
+.overviewSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.unitHeader {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.unitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.unitCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.unitTop {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.unitBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(0, 86, 210, 0.15);
+  color: var(--primary-light);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.unitName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.unitDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.topicsBox {
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1rem;
+  margin-top: 0.25rem;
+}
+
+.topicsLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.topicsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+/* Tab Section General */
+.tabSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Lectures Grid */
+.lecturesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lectureCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: var(--transition);
+}
+
+.lectureCard:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+}
+
+.lectureIconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 86, 210, 0.15);
+  color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lectureInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.lectureUnit {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.lectureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0.15rem 0;
+}
+
+.lectureDuration {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Materials List */
+.materialsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.materialCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pdfIcon {
+  background: rgba(220, 38, 38, 0.15);
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.matInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.matTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.matSize {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.matActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Exams Grid */
+.examsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .examsGrid { grid-template-columns: 1fr; }
+  .lectureCard { flex-direction: column; align-items: flex-start; }
+  .materialCard { flex-direction: column; align-items: flex-start; }
+  .matActions { width: 100%; justify-content: flex-end; }
+}

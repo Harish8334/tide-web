@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://52.64.117.32:8000/api/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
+

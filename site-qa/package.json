@@ -1,0 +1,29 @@
+{
+  "name": "site-qa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-website Playwright QA suite: every page, 5 viewports, links, forms, SEO, a11y, performance",
+  "scripts": {
+    "setup": "npm install && npx playwright install chromium",
+    "discover": "tsx utils/discover.ts",
+    "test": "npm run discover && playwright test",
+    "test:nodiscover": "playwright test",
+    "test:desktop": "playwright test --project=desktop-1440 --project=laptop-1280",
+    "test:mobile": "playwright test --project=mobile-390 --project=mobile-360",
+    "test:tablet": "playwright test --project=tablet-768",
+    "test:headed": "playwright test --headed --workers=1",
+    "test:ui": "playwright test --ui",
+    "test:visual": "VISUAL=1 playwright test tests/02-responsive.spec.ts",
+    "test:visual:update": "VISUAL=1 playwright test tests/02-responsive.spec.ts --update-snapshots",
+    "test:cross": "CROSS_BROWSER=1 npm test",
+    "summary": "tsx utils/summary.ts",
+    "report": "playwright show-report qa-report"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
