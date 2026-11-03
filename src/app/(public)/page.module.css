@@ -178,13 +178,15 @@
 .enquiryTitle {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #1E1B4B;
+  color: #1E1B4B !important;
   line-height: 1.25;
 }
 
 .enquiryDesc {
-  font-size: 0.82rem;
-  color: #64748B;
+  font-size: 0.88rem !important;
+  color: #475569 !important;
+  line-height: 1.55;
+  font-weight: 500;
 }
 
 .enquiryForm {
@@ -704,5 +706,175 @@
   }
   .sectionTitle {
     font-size: 1.75rem;
+  }
+}
+
+/* ── Campus & Helpdesk Section ── */
+.campusSection {
+  background: var(--color-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.campusGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.campusInfoCard {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.campusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #3B0C75;
+  background: rgba(59, 12, 117, 0.08);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.campusHeading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.campusDesc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.campusAddressBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+}
+
+.campusAddressText {
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.campusLandmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #B45309;
+  background: #FEF3C7;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  width: fit-content;
+}
+
+.campusHelplineGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.campusHelplineCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.campusHelplineLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.campusHelplineNumber {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary-light);
+  font-family: monospace;
+}
+
+.campusHelplineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #16A34A;
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+
+.campusMapWrapper {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 2px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  height: 380px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.campusMapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  flex: 1;
+}
+
+.campusMapBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #3B0C75 0%, #673DE6 100%);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.campusMapBtn:hover {
+  opacity: 0.92;
+}
+
+@media (max-width: 900px) {
+  .campusGrid {
+    grid-template-columns: 1fr;
+  }
+  .campusHelplineGrid {
+    grid-template-columns: 1fr;
+  }
+  .campusMapWrapper {
+    height: 300px;
   }
 }

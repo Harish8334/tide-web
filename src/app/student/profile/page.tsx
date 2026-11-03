@@ -21,6 +21,10 @@ import {
   Save,
   Shield,
   GraduationCap,
+  Headphones,
+  MessageCircle,
+  ExternalLink,
+  Navigation,
 } from 'lucide-react';
 
 export default function StudentProfilePage() {
@@ -31,12 +35,12 @@ export default function StudentProfilePage() {
     firstName: user?.firstName || user?.name?.split(' ')[0] || '',
     lastName: user?.lastName || user?.name?.split(' ').slice(1).join(' ') || '',
     email: user?.email || '',
-    phone: user?.phone || '+91 98765 43210',
-    whatsappNumber: user?.whatsappNumber || '+91 98765 43210',
-    program: user?.program || 'M.Sc Physics',
-    institution: user?.institution || 'Delhi University / Department of Physics',
-    district: user?.district || 'New Delhi',
-    dob: user?.dob || '2001-08-15',
+    phone: user?.phone || '',
+    whatsappNumber: user?.whatsappNumber || '',
+    program: user?.program || 'PG TRB',
+    institution: user?.institution || 'Government Arts College / Tiruvannamalai',
+    district: user?.district || 'Tiruvannamalai',
+    dob: user?.dob || '2000-01-01',
   });
 
   const [saving, setSaving] = useState(false);
@@ -196,10 +200,17 @@ export default function StudentProfilePage() {
                 value={formData.program}
                 onChange={(e) => setFormData({ ...formData, program: e.target.value })}
               >
-                <option value="M.Sc Physics">M.Sc Physics (Core &amp; Entrance)</option>
-                <option value="CSIR-NET Physics">CSIR-NET JRF Physics</option>
-                <option value="GATE Physics">GATE Physics</option>
-                <option value="B.Ed Pedagogy">B.Ed &amp; Pedagogy</option>
+                <option value="PG TRB">PG TRB (Post Graduate TRB Physics)</option>
+                <option value="Education & Psychology TRB">Education &amp; Psychology TRB</option>
+                <option value="UG TRB">UG TRB (Graduate Teachers TRB Physics)</option>
+                <option value="POLY TRB">POLY TRB (Polytechnic College Lecturers)</option>
+                <option value="TN SET">TN SET (Tamil Nadu State Eligibility Test)</option>
+                <option value="AP TRB">AP TRB (Assistant Professor TRB)</option>
+                <option value="TN SCERT TRB">TN SCERT TRB</option>
+                <option value="Engg. TRB">Engg. TRB (Engineering College Lecturers)</option>
+                <option value="CSIR - NET">CSIR - NET (Physical Science)</option>
+                <option value="JEE">JEE (Main &amp; Advanced Physics)</option>
+                <option value="NEET">NEET (UG Physics)</option>
               </select>
             </div>
 
@@ -247,6 +258,95 @@ export default function StudentProfilePage() {
 
         {/* Account Security & Actions */}
         <div className={styles.actionsCol}>
+          {/* Application Helpdesk & Student Support Card */}
+          <div className={styles.supportCard}>
+            <div className={styles.supportBadge}>
+              <Headphones size={13} /> Student Helpdesk
+            </div>
+            <h3 className={styles.supportTitle}>Application Access &amp; Support</h3>
+            <p className={styles.supportNote}>
+              Have any doubts or need assistance accessing the application, live lectures, or test series after installing the app? Contact our dedicated student helpdesk:
+            </p>
+
+            <div className={styles.helplineGrid}>
+              <div className={styles.helplineRow}>
+                <div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: 700 }}>Helpline 1</div>
+                  <div className={styles.helplineNumber}>9994854604</div>
+                </div>
+                <div className={styles.helplineActions}>
+                  <a href="tel:9994854604" className={styles.helplineCallBtn} title="Call 9994854604">
+                    <Phone size={12} /> Call
+                  </a>
+                  <a
+                    href="https://wa.me/919994854604?text=Hi%20Tide%20Physics%20Academy,%20I%20need%20help%20accessing%20the%20application."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.helplineWaBtn}
+                    title="WhatsApp 9994854604"
+                  >
+                    <MessageCircle size={12} /> WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.helplineRow}>
+                <div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: 700 }}>Helpline 2</div>
+                  <div className={styles.helplineNumber}>9994850604</div>
+                </div>
+                <div className={styles.helplineActions}>
+                  <a href="tel:9994850604" className={styles.helplineCallBtn} title="Call 9994850604">
+                    <Phone size={12} /> Call
+                  </a>
+                  <a
+                    href="https://wa.me/919994850604?text=Hi%20Tide%20Physics%20Academy,%20I%20need%20help%20accessing%20the%20application."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.helplineWaBtn}
+                    title="WhatsApp 9994850604"
+                  >
+                    <MessageCircle size={12} /> WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Location & Landmark */}
+            <div className={styles.locationContainer}>
+              <div className={styles.locationHeader}>
+                <MapPin size={16} color="var(--primary-light)" /> Institute Location
+              </div>
+              <div className={styles.locationAddress}>
+                Mathalangula Street,<br />
+                Periyar Statue Backside,<br />
+                Tiruvannamalai - 606601.
+              </div>
+              <div className={styles.landmarkTag}>
+                📍 Landmark: Opposite Amma Medical
+              </div>
+            </div>
+
+            {/* Current Location Google Maps Embed & Link */}
+            <div className={styles.mapPreview}>
+              <iframe
+                title="Tide Physics Academy Current Location"
+                src="https://maps.google.com/maps?q=12.2355155,79.0747604&z=16&output=embed"
+                className={styles.mapIframe}
+                loading="lazy"
+              />
+            </div>
+
+            <a
+              href="https://maps.app.goo.gl/R5j7rKeV4ozKHRCSA?g_st=ac"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mapsDirectLink}
+            >
+              <Navigation size={15} /> Open in Google Maps <ExternalLink size={14} />
+            </a>
+          </div>
+
           <div className={styles.actionCard}>
             <h3 className={styles.actionCardTitle}>Account Security</h3>
             <p className={styles.actionCardDesc}>

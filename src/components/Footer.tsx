@@ -30,18 +30,18 @@ export default function Footer() {
               ADMISSIONS OPEN 2026-27
             </div>
             <h3 className={styles.preFooterTitle}>
-              Ready to Master Physics and Secure an All-India Rank?
+              Targeting Top Ranks in TRB Physics &amp; Competitive Exams?
             </h3>
             <p className={styles.preFooterSubtitle}>
-              Join over 15,000 aspirants learning from India’s foremost CSIR-NET &amp; GATE Physics faculty.
+              Join over 15,000 aspirants learning from Tamil Nadu&apos;s leading TRB Academy for Physics.
             </p>
           </div>
           <div className={styles.preFooterActions}>
             <Link href="/courses" className={styles.preFooterPrimaryBtn}>
-              Explore Live Batches <Rocket size={16} style={{ marginLeft: 6 }} />
+              Explore Batches <Rocket size={16} style={{ marginLeft: 6 }} />
             </Link>
-            <a href="tel:+919876543210" className={styles.preFooterSecondaryBtn}>
-              <Phone size={15} style={{ marginRight: 6 }} /> Talk to Mentor
+            <a href="tel:9994854604" className={styles.preFooterSecondaryBtn}>
+              <Phone size={15} style={{ marginRight: 6 }} /> Call Helpline
             </a>
           </div>
         </div>
@@ -57,13 +57,11 @@ export default function Footer() {
                 <div className={styles.logoTitle}>
                   Tide <span>Physics</span> Academy
                 </div>
-                <div className={styles.logoSub}>Premier Institute for Physical Sciences</div>
+                <div className={styles.logoSub}>PHYSICS (MSc., &amp; BSc Level Training Centre)</div>
               </div>
             </Link>
             <p className={styles.brandDesc}>
-              India’s premier institute for higher physics education and competitive examinations.
-              Guiding aspirants to clear CSIR-NET JRF, GATE Physical Sciences, TRB Assistant Professor,
-              and premier M.Sc entrances with stellar national ranks.
+              PG TRB, UG TRB, POLY. TRB, AP TRB, TN SET, SCERT, Engg. TRB Exams Coaching. Best TRB coaching centre in physics in Tamil Nadu — Online &amp; Offline Classes.
             </p>
             <div className={styles.trustBadges}>
               <span className={styles.trustBadge}>
@@ -76,7 +74,7 @@ export default function Footer() {
               </span>
               <span className={styles.trustBadge}>
                 <GraduationCap size={13} color="#CBD5E1" style={{ marginRight: 4, display: 'inline' }} />
-                Top IIT &amp; IISc Faculty
+                Top Rank Faculty
               </span>
             </div>
           </div>
@@ -85,12 +83,13 @@ export default function Footer() {
           <div>
             <h4 className={styles.colTitle}>Flagship Programs</h4>
             <div className={styles.linkList}>
-              <Link href="/courses" className={styles.linkItem}>CSIR-NET Physical Sciences</Link>
-              <Link href="/courses" className={styles.linkItem}>GATE Physics Comprehensive</Link>
-              <Link href="/courses" className={styles.linkItem}>M.Sc Physics (IIT-JAM / CUET)</Link>
-              <Link href="/courses" className={styles.linkItem}>TRB Assistant Professor Exam</Link>
-              <Link href="/courses" className={styles.linkItem}>Classical Electrodynamics Core</Link>
-              <Link href="/courses" className={styles.linkItem}>Advanced Quantum Mechanics</Link>
+              <Link href="/courses" className={styles.linkItem}>PG TRB Physics</Link>
+              <Link href="/courses" className={styles.linkItem}>Education &amp; Psychology TRB</Link>
+              <Link href="/courses" className={styles.linkItem}>UG TRB &amp; POLY TRB</Link>
+              <Link href="/courses" className={styles.linkItem}>TN SET Physical Sciences</Link>
+              <Link href="/courses" className={styles.linkItem}>AP TRB (Assistant Professor)</Link>
+              <Link href="/courses" className={styles.linkItem}>Engg. TRB &amp; TN SCERT TRB</Link>
+              <Link href="/courses" className={styles.linkItem}>CSIR - NET, JEE &amp; NEET</Link>
             </div>
           </div>
 
@@ -100,24 +99,26 @@ export default function Footer() {
             <div className={styles.linkList}>
               <Link href="/login" className={styles.linkItem}>Student Portal Login</Link>
               <Link href="/register" className={styles.linkItem}>New Aspirant Registration</Link>
+              <Link href="/student/profile" className={styles.linkItem}>Student Helpdesk &amp; Profile</Link>
               <Link href="/student/live-classes" className={styles.linkItem}>Live Classroom Schedule</Link>
               <Link href="/student/exams" className={styles.linkItem}>All-India CBT Test Series</Link>
               <Link href="/student/formulas" className={styles.linkItem}>Formula Pocket Handbook</Link>
-              <Link href="/student/leaderboard" className={styles.linkItem}>National AIR Leaderboard</Link>
             </div>
           </div>
 
           {/* Contact & Campus */}
           <div>
-            <h4 className={styles.colTitle}>National Campus</h4>
+            <h4 className={styles.colTitle}>Campus &amp; Helplines</h4>
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <MapPin size={16} className={styles.contactIcon} />
-                <span>Ramanujan Academic Tower, 42 Science Enclave, New Delhi - 110016</span>
+                <span>Mathalangula Street, Periyar Statue Backside (Opp. Amma Medical), Tiruvannamalai - 606601</span>
               </div>
               <div className={styles.contactItem}>
                 <Phone size={16} className={styles.contactIcon} />
-                <span>+91 98765 43210 / +91 70707 01005</span>
+                <span>
+                  <a href="tel:9994854604" style={{ color: 'inherit', textDecoration: 'none' }}>+91 99948 54604</a> / <a href="tel:9994850604" style={{ color: 'inherit', textDecoration: 'none' }}>+91 99948 50604</a>
+                </span>
               </div>
               <div className={styles.contactItem}>
                 <Mail size={16} className={styles.contactIcon} />
@@ -125,8 +126,27 @@ export default function Footer() {
               </div>
               <div className={styles.contactItem}>
                 <Clock size={16} className={styles.contactIcon} />
-                <span>Mon – Sat: 8:00 AM – 8:30 PM (IST)</span>
+                <span>Mon – Sat: 8:30 AM – 7:30 PM (IST)</span>
               </div>
+            </div>
+
+            <div style={{ marginTop: '0.75rem' }}>
+              <a
+                href="https://maps.app.goo.gl/R5j7rKeV4ozKHRCSA?g_st=ac"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  fontSize: '0.8rem',
+                  color: 'var(--primary-light)',
+                  fontWeight: 700,
+                  textDecoration: 'underline',
+                }}
+              >
+                <MapPin size={13} /> View on Google Maps
+              </a>
             </div>
 
             {/* Social Community Badges */}

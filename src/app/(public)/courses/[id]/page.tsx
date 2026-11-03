@@ -10,6 +10,17 @@ export const instant = false;
 
 export async function generateStaticParams() {
   return [
+    { id: 'pg-trb' },
+    { id: 'edu-psychology-trb' },
+    { id: 'ug-trb' },
+    { id: 'poly-trb' },
+    { id: 'tn-set' },
+    { id: 'ap-trb' },
+    { id: 'tn-scert-trb' },
+    { id: 'engg-trb' },
+    { id: 'csir-net' },
+    { id: 'jee' },
+    { id: 'neet' },
     { id: 'c1' },
     { id: 'c2' },
   ];
@@ -37,11 +48,286 @@ interface CourseData {
 }
 
 const FALLBACK_CATALOG: Record<string, CourseData> = {
+  'pg-trb': {
+    _id: 'pg-trb',
+    title: 'PG TRB Physics (Post Graduate Assistant)',
+    description: 'Premier coaching program for Tamil Nadu Post Graduate Assistant Teachers Examination in Physics. Comprehensive coverage of Classical Mechanics, Quantum Mechanics, Solid State Physics, Nuclear Physics, Electronics and Optics with unit tests & 10-year previous year question solutions.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    price: 4999,
+    originalPrice: 9999,
+    rating: 4.96,
+    duration: 220,
+    instructor: 'Tide Faculty Team (Tiruvannamalai)',
+    enrolledCount: 840,
+    units: [
+      {
+        title: 'Unit 1: Vector Fields & Classical Mechanics',
+        description: 'Vector calculus, coordinate systems, D’Alembert principle, Lagrange and Hamilton equations, and small oscillations.',
+        topics: ['Generalized Coordinates & Variational Principle', 'Central Force Motion & Kepler Laws', 'Poisson Brackets & Canonical Transformations', 'Rigid Body Motion & Euler Angles'],
+      },
+      {
+        title: 'Unit 2: Quantum Mechanics & Wave Equations',
+        description: 'Schrödinger wave equation, square wells, harmonic oscillator, angular momentum, and perturbation theory.',
+        topics: ['Operators & Expectation Values', 'Hydrogen Atom Exact Solution', 'Perturbation Theory & Stark Effect', 'Identical Particles & Spin'],
+      },
+      {
+        title: 'Unit 3: Solid State Physics & Electronics',
+        description: 'Crystal structures, X-ray diffraction, band theory of solids, semiconductor devices, operational amplifiers, and digital logic.',
+        topics: ['Reciprocal Lattice & Brillouin Zones', 'Superconductivity & Meissner Effect', 'Op-Amp Inverting & Non-Inverting Circuits', 'Logic Gates & Microprocessor Basics'],
+      },
+      {
+        title: 'Unit 4: Nuclear, Particle & Atomic Spectroscopy',
+        description: 'Nuclear models, radioactive decays, elementary particle classification, and Zeeman / Stark effects.',
+        topics: ['Liquid Drop Model & Shell Model', 'Alpha, Beta & Gamma Transitions', 'Quarks & Conservation Laws', 'Vector Atom Model & LS Coupling'],
+      },
+    ],
+  },
+  'edu-psychology-trb': {
+    _id: 'edu-psychology-trb',
+    title: 'Education & Psychology TRB (Pedagogy & GK)',
+    description: 'High-scoring pedagogy module for all TRB competitive examinations: Educational Psychology, Child Development, Teaching Methodology, Educational Policies, and General Knowledge with 3,000+ MCQs.',
+    category: 'TRB Exams',
+    level: 'Intermediate',
+    price: 2999,
+    originalPrice: 5999,
+    rating: 4.92,
+    duration: 120,
+    instructor: 'Dr. Education Specialist',
+    enrolledCount: 920,
+    units: [
+      {
+        title: 'Unit 1: Human Growth, Development & Learning Theories',
+        description: 'Stages of child growth, Piaget cognitive development, Bruner, Vygotsky, Skinner and Pavlov learning paradigms.',
+        topics: ['Cognitive & Emotional Development', 'Operant & Classical Conditioning', 'Gestalt Insight Learning', 'Motivation & Memory Retention'],
+      },
+      {
+        title: 'Unit 2: Personality, Intelligence & Assessment',
+        description: 'Theories of intelligence, IQ tests, personality assessment, creativity, and mental health in the classroom.',
+        topics: ['Spearman, Gardner & Guilford Models', 'Projective Techniques & Rating Scales', 'Guidance, Counseling & Adjustment', 'Classroom Behavior Management'],
+      },
+      {
+        title: 'Unit 3: Educational Innovations & Tamil Nadu Policies',
+        description: 'National and state educational policies, NEP, RTE, Samagra Shiksha, educational technology, and continuous comprehensive evaluation.',
+        topics: ['Curriculum Design Principles', 'Modern Pedagogical Methodologies', 'Inclusive Education for Differently-Abled', 'Educational Statistics & Grading'],
+      },
+    ],
+  },
+  'ug-trb': {
+    _id: 'ug-trb',
+    title: 'UG TRB Physics (Graduate Teacher / B.T. Assistant)',
+    description: 'Comprehensive coaching for Tamil Nadu Graduate Teachers (UG TRB) in Physics. Full Samacheer Kalvi & Graduate level syllabus with chapter-wise DPPs and model test series.',
+    category: 'TRB Exams',
+    level: 'Intermediate',
+    price: 4499,
+    originalPrice: 8999,
+    rating: 4.9,
+    duration: 180,
+    instructor: 'Tide Faculty Team',
+    enrolledCount: 710,
+    units: [
+      {
+        title: 'Unit 1: Mechanics, Properties of Matter & Sound',
+        description: 'Newtonian mechanics, elasticity, surface tension, viscosity, acoustics, and ultrasonic wave applications.',
+        topics: ['Cantilever & Bending of Beams', 'Viscosity Poiseuille Flow', 'Doppler Effect & Architectural Acoustics', 'Ultrasonics Generation & Piezoelectric'],
+      },
+      {
+        title: 'Unit 2: Thermal Physics & Optics',
+        description: 'Kinetic theory of gases, thermodynamics cycles, entropy, interference, diffraction, polarization, and lasers.',
+        topics: ['Carnot Engine & Maxwell Relations', 'Fresnel & Fraunhofer Diffraction', 'Quarter & Half Wave Plates', 'Laser Principles & Optical Fibers'],
+      },
+      {
+        title: 'Unit 3: Electricity, Magnetism & Modern Physics',
+        description: 'Electrostatics, magnetic effects of current, electromagnetic induction, special theory of relativity, and atomic models.',
+        topics: ['Biot-Savart & Ampère Law', 'LCR Resonance & Transformers', 'Michelson-Morley Experiment', 'Bohr Atom & Photoelectric Effect'],
+      },
+    ],
+  },
+  'poly-trb': {
+    _id: 'poly-trb',
+    title: 'POLY TRB Physics (Polytechnic College Lecturers)',
+    description: 'Specialized coaching for Tamil Nadu Government Polytechnic College Lecturer recruitment. High-yield engineering physics concepts, numerical calculations, and CBT simulator.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    price: 5499,
+    originalPrice: 10999,
+    rating: 4.94,
+    duration: 200,
+    instructor: 'Senior Engineering Physics Panel',
+    enrolledCount: 650,
+    units: [
+      {
+        title: 'Unit 1: Engineering Physics & Mathematical Methods',
+        description: 'Tensors, differential equations, Fourier transforms, crystal growth techniques, and thin film deposition.',
+        topics: ['Vector Spaces & Orthogonal Coordinates', 'Fourier & Laplace Series', 'Crystal Imperfections & Defects', 'Non-Destructive Testing (NDT)'],
+      },
+      {
+        title: 'Unit 2: Quantum Engineering & Electromagnetic Fields',
+        description: 'Wave-particle duality, tunneling, Maxwell field equations, Poynting vector, and dielectric properties.',
+        topics: ['Quantum Well, Wire & Dot Structures', 'Electromagnetic Wave Equations', 'Polarization Mechanisms & Clausius-Mossotti', 'Superconducting Quantum Devices (SQUID)'],
+      },
+    ],
+  },
+  'tn-set': {
+    _id: 'tn-set',
+    title: 'TN SET Physical Sciences (Assistant Professor)',
+    description: 'Tamil Nadu State Eligibility Test (TN SET) Physical Sciences. Complete preparation for Paper 1 (Teaching & Research Aptitude) + Paper 2 (Core Physics) with 15-year solved papers.',
+    category: 'TN SET & CSIR-NET',
+    level: 'Advanced',
+    price: 5999,
+    originalPrice: 11999,
+    rating: 4.95,
+    duration: 250,
+    instructor: 'Prof. Ananya Sen & Panel',
+    enrolledCount: 580,
+    units: [
+      {
+        title: 'Unit 1: Paper 1 Teaching & Research Aptitude',
+        description: 'Teaching aptitude, research methodology, data interpretation, communication, higher education governance.',
+        topics: ['Research Types & Ethics', 'ICT in Teaching', 'Data Interpretation & Reasoning', 'Environment & Higher Education System'],
+      },
+      {
+        title: 'Unit 2: Paper 2 Core Physical Sciences',
+        description: 'Mathematical physics, classical mechanics, electrodynamics, quantum mechanics, thermodynamics, and condensed matter.',
+        topics: ['Complex Variables & Green Functions', 'Hamiltonian Dynamics', 'Relativistic Electrodynamics', 'Condensed Matter & Particle Physics'],
+      },
+    ],
+  },
+  'ap-trb': {
+    _id: 'ap-trb',
+    title: 'AP TRB (Assistant Professor TRB - Govt Arts & Science)',
+    description: 'Prestige coaching for Collegiate Education Assistant Professor recruitment in Physics. Deep postgraduate curriculum, research orientation, and interview guidance.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    price: 6499,
+    originalPrice: 12999,
+    rating: 4.97,
+    duration: 260,
+    instructor: 'Dr. Rajesh Sharma & Team',
+    enrolledCount: 520,
+    units: [
+      {
+        title: 'Unit 1: Advanced Postgraduate Physics Core',
+        description: 'Higher quantum mechanics, statistical mechanics, relativistic electrodynamics, and solid state physics.',
+        topics: ['Dirac Equation & Covariant Formulation', 'Ensembles & Partition Functions', 'Superconductivity & Quantum Hall Effect', 'Non-linear Dynamics & Chaos'],
+      },
+      {
+        title: 'Unit 2: Research Aptitude & Interview Viva Coaching',
+        description: 'Research proposals, academic presentations, subject viva simulation, and pedagogical lecture demonstration.',
+        topics: ['Research Methodology & Journal Publication', 'Viva Voce Mock Panels', 'Board Presentation Techniques', 'Classroom Pedagogy Demonstration'],
+      },
+    ],
+  },
+  'tn-scert-trb': {
+    _id: 'tn-scert-trb',
+    title: 'TN SCERT TRB Physics (Senior / DIET Lecturer)',
+    description: 'Structured preparation for Tamil Nadu SCERT & DIET Lecturer recruitment examinations in Physics with pedagogy, curriculum methodology, and full-length model exams.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    price: 5499,
+    originalPrice: 10999,
+    rating: 4.91,
+    duration: 190,
+    instructor: 'Tide Faculty Panel',
+    enrolledCount: 430,
+    units: [
+      {
+        title: 'Unit 1: Core Physics Specialization',
+        description: 'Mechanics, Electromagnetism, Quantum Theory, and Modern Physics for senior educational researchers.',
+        topics: ['Theoretical Frameworks in Physics', 'Laboratory Practical Development', 'Scientific Inquiry Models', 'Diagnostic Testing & Remedial Teaching'],
+      },
+    ],
+  },
+  'engg-trb': {
+    _id: 'engg-trb',
+    title: 'Engg. TRB Physics (Govt Engineering Colleges)',
+    description: 'Targeted coaching for Tamil Nadu Government Engineering Colleges Lecturer recruitment in Physics. Advanced mathematical methods, electrodynamics, quantum physics, and thermodynamics.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    price: 5999,
+    originalPrice: 11999,
+    rating: 4.93,
+    duration: 210,
+    instructor: 'Senior Engineering Physics Panel',
+    enrolledCount: 490,
+    units: [
+      {
+        title: 'Unit 1: Mathematical Physics & Computational Methods',
+        description: 'Complex variables, special functions, numerical methods, and differential equations in physics.',
+        topics: ['Bessel & Legendre Functions', 'Runge-Kutta & Finite Difference Methods', 'Boundary Value Problems', 'Integral Transforms'],
+      },
+    ],
+  },
+  'csir-net': {
+    _id: 'csir-net',
+    title: 'CSIR - NET Physical Science (JRF & Lectureship)',
+    description: 'National benchmark coaching for CSIR UGC-NET JRF in Physical Sciences. 350+ hours live classes covering Parts A, B, and C with full mock test series and printed study kits.',
+    category: 'TN SET & CSIR-NET',
+    level: 'Advanced',
+    price: 6999,
+    originalPrice: 13999,
+    rating: 4.98,
+    duration: 350,
+    instructor: 'Prof. Ananya Sen (CSIR-NET AIR 3)',
+    enrolledCount: 1120,
+    units: [
+      {
+        title: 'Unit 1: Mathematical Physics & Classical Mechanics',
+        description: 'Tensors, Green functions, contour integration, Lagrangian and Hamiltonian mechanics, small oscillations.',
+        topics: ['Cauchy Residue Theorem', 'Canonical Transformations', 'Central Force Problems', 'Hamilton-Jacobi Theory'],
+      },
+      {
+        title: 'Unit 2: Quantum Mechanics & Electrodynamics',
+        description: 'Bra-ket notation, perturbation methods, scattering, Maxwell equations, relativistic kinematics and radiation.',
+        topics: ['Variational & WKB Methods', 'Dirac Equation', 'Retarded Potentials & Larmor Formula', 'Waveguides & Cavities'],
+      },
+    ],
+  },
+  'jee': {
+    _id: 'jee',
+    title: 'JEE Physics (Main & Advanced Foundation & Ranker)',
+    description: 'Conceptual intuition and rigorous numerical problem-solving for IIT-JEE Main & Advanced. In-depth HC Verma, Irodov, and 20-year PYQ mastery.',
+    category: 'School & Competitive',
+    level: 'Intermediate',
+    price: 4999,
+    originalPrice: 9999,
+    rating: 4.95,
+    duration: 280,
+    instructor: 'IITian Physics Faculty',
+    enrolledCount: 880,
+    units: [
+      {
+        title: 'Unit 1: Mechanics & Rotational Motion',
+        description: 'Kinematics, Newton laws, work power energy, center of mass, rotational dynamics, and gravitation.',
+        topics: ['Moment of Inertia Theorems', 'Rolling Without Slipping', 'Planetary Motion & Orbits', 'Collision in 2D'],
+      },
+    ],
+  },
+  'neet': {
+    _id: 'neet',
+    title: 'NEET Physics (Medical Entrance Score Booster 160+)',
+    description: 'Master NEET Physics with line-by-line NCERT coverage, speed-solving tricks, formula handbooks, daily 50-MCQ sheets, and full-length OMR test simulation.',
+    category: 'School & Competitive',
+    level: 'Intermediate',
+    price: 4499,
+    originalPrice: 8999,
+    rating: 4.94,
+    duration: 240,
+    instructor: 'Medical Physics Mentor',
+    enrolledCount: 950,
+    units: [
+      {
+        title: 'Unit 1: NCERT High-Yield Core Mechanics & Optics',
+        description: 'Units & dimensions, motion in a straight line, laws of motion, ray optics, wave optics, and modern physics.',
+        topics: ['Dimensional Analysis Shortcuts', 'Projectile Motion Tricks', 'Ray Optics Lens Maker Formula', 'Photoelectric Effect & Nuclear Binding Energy'],
+      },
+    ],
+  },
   c1: {
     _id: 'c1',
     title: 'Advanced Quantum Mechanics',
     description: 'Comprehensive graduate-level curriculum covering Schrödinger wave packets in 3D, Hilbert space formalism, angular momentum algebra, identical particles, and time-independent & time-dependent perturbation theory.',
-    category: 'M.Sc Physics',
+    category: 'TRB Exams',
     level: 'Advanced',
     price: 4999,
     originalPrice: 9999,
@@ -55,28 +341,13 @@ const FALLBACK_CATALOG: Record<string, CourseData> = {
         description: 'Linear vector spaces, Hilbert spaces, operators, observables, uncertainty relations, and spectral decomposition theorem.',
         topics: ['Dirac Bra-Ket Algebra', 'Wave Packet Dispersion', 'Generalized Uncertainty Principle', 'Matrix Mechanics Representation'],
       },
-      {
-        title: 'Unit 2: Angular Momentum & Spin Selection Rules',
-        description: 'Orbital and spin angular momentum, Pauli spin matrices, addition of angular momenta, and Clebsch-Gordan coefficients.',
-        topics: ['Commutation Relations', 'Ladder Operators L±', 'Clebsch-Gordan Series', 'Singlet and Triplet States'],
-      },
-      {
-        title: 'Unit 3: Approximation Methods & Perturbation Theory',
-        description: 'Non-degenerate and degenerate perturbation theory, Stark effect, Zeeman splitting, and WKB semiclassical approximation.',
-        topics: ['First & Second Order Energy Shifts', 'Relativistic Fine Structure', 'WKB Connection Formulas', 'Variational Principle'],
-      },
-      {
-        title: 'Unit 4: Identical Particles & Quantum Scattering',
-        description: 'Symmetric and antisymmetric states, Fermi-Dirac and Bose-Einstein statistics, partial wave analysis, and Born approximation.',
-        topics: ['Exchange Symmetry & Slater Determinants', 'Differential Scattering Cross-Section', 'Phase Shift Analysis', 'Optical Theorem'],
-      },
     ],
   },
   c2: {
     _id: 'c2',
     title: 'Classical Electrodynamics',
-    description: 'Maxwell equations in tensor notation, relativistic kinematics, gauge transformations, radiation by moving charges, waveguides, and resonant cavities for CSIR-NET & GATE aspirants.',
-    category: 'M.Sc Physics',
+    description: 'Maxwell equations in tensor notation, relativistic kinematics, radiation by moving charges, waveguides, and resonant cavities.',
+    category: 'TRB Exams',
     level: 'Advanced',
     price: 4999,
     originalPrice: 9999,
@@ -545,7 +816,7 @@ export default async function PublicCourseDetailPage({
               </Link>
 
               <a
-                href="https://wa.me/919876543210?text=Hi%20Tide%20Physics%20Academy,%20please%20send%20the%20detailed%20syllabus%20brochure%20for%20this%20batch."
+                href="https://wa.me/919994854604?text=Hi%20Tide%20Physics%20Academy,%20please%20send%20the%20detailed%20syllabus%20brochure%20for%20this%20batch."
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.syllabusBtn}
@@ -557,9 +828,9 @@ export default async function PublicCourseDetailPage({
               <div className={styles.helplineNote}>
                 Need help deciding? Speak with our Chief Academic Counsellor:
                 <br />
-                <a href="tel:+919876543210" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.25rem' }}>
-                  <Phone size={14} /> +91 98765 43210
-                </a> (8 AM – 8 PM)
+                <a href="tel:9994854604" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.25rem' }}>
+                  <Phone size={14} /> 9994854604 / 9994850604
+                </a> (8:30 AM – 7:30 PM)
               </div>
             </div>
           </aside>

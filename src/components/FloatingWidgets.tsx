@@ -10,24 +10,24 @@ export default function FloatingWidgets() {
     <>
       {/* WhatsApp Support Button */}
       <a
-        href="https://wa.me/919876543210?text=Hi%20PhysicsCoach%20Pro,%20I%20want%20information%20regarding%20CSIR-NET%20and%20GATE%20Physics%20batches."
+        href="https://wa.me/919994854604?text=Hi%20Tide%20Physics%20Academy,%20I%20want%20information%20regarding%20TRB%20Physics%20and%20competitive%20batches."
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsappFloat}
         aria-label="WhatsApp Support"
       >
         <MessageCircle size={20} className={styles.whatsappIcon} />
-        <span className={styles.whatsappText}>WhatsApp Support</span>
+        <span className={styles.whatsappText}>WhatsApp Helpdesk</span>
       </a>
 
       {/* Direct Call Button */}
       <a
-        href="tel:+919876543210"
+        href="tel:9994854604"
         className={styles.callFloat}
-        aria-label="Faculty Desk: +91 98765 43210"
+        aria-label="Helpline: 9994854604"
       >
         <Phone size={18} />
-        <span className={styles.callText}>Faculty Desk: +91 98765 43210</span>
+        <span className={styles.callText}>Helpline: 9994854604</span>
       </a>
     </>
   );

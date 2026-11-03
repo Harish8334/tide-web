@@ -75,8 +75,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className={styles.itemLabel}>Email Support</div>
-                    <a href="mailto:contact@physicscoachpro.com" className={styles.itemLink}>
-                      contact@physicscoachpro.com
+                    <a href="mailto:admissions@tidephysics.com" className={styles.itemLink}>
+                      admissions@tidephysics.com
                     </a>
                   </div>
                 </div>
@@ -86,10 +86,15 @@ export default function ContactPage() {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <div className={styles.itemLabel}>Counseling Helpline</div>
-                    <a href="tel:+919876543210" className={styles.itemLink}>
-                      +91 98765 43210
-                    </a>
+                    <div className={styles.itemLabel}>Helpline Numbers</div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                      <a href="tel:9994854604" className={styles.itemLink}>
+                        +91 99948 54604 (Admissions &amp; Batches)
+                      </a>
+                      <a href="tel:9994850604" className={styles.itemLink}>
+                        +91 99948 50604 (App Access &amp; Support)
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -98,9 +103,13 @@ export default function ContactPage() {
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <div className={styles.itemLabel}>Physical Center</div>
-                    <span className={styles.itemText}>
-                      Physics Tower, Education Hub, Near Metro Gate 3, New Delhi, 110001
+                    <div className={styles.itemLabel}>Physical Center &amp; Current Location</div>
+                    <span className={styles.itemText} style={{ display: 'block', lineHeight: 1.5 }}>
+                      Mathalangula Street, Periyar Statue Backside,<br />
+                      Tiruvannamalai - 606601, Tamil Nadu.
+                    </span>
+                    <span style={{ display: 'inline-block', marginTop: '0.35rem', fontSize: '0.85rem', fontWeight: 700, color: '#B45309', background: '#FEF3C7', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+                      📍 Landmark: Opposite Amma Medical
                     </span>
                   </div>
                 </div>
@@ -112,20 +121,32 @@ export default function ContactPage() {
                   <div>
                     <div className={styles.itemLabel}>Operating Hours</div>
                     <span className={styles.itemText}>
-                      Mon – Sat: 9:00 AM – 7:00 PM IST (Sundays by appointment)
+                      Mon – Sat: 8:30 AM – 7:30 PM IST (Sundays by appointment)
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Map embed placeholder */}
+              {/* Map embed */}
               <div className={styles.mapContainer}>
                 <iframe
-                  title="Institute Location Map"
-                  src="https://maps.google.com/maps?q=Connaught%20Place,%20New%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  title="Tide Physics Academy Location Map"
+                  src="https://maps.google.com/maps?q=12.2355155,79.0747604&z=16&output=embed"
                   className={styles.mapIframe}
                   loading="lazy"
                 />
+              </div>
+
+              <div style={{ marginTop: '1rem' }}>
+                <a
+                  href="https://maps.app.goo.gl/R5j7rKeV4ozKHRCSA?g_st=ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-full"
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                >
+                  <MapPin size={16} /> Open in Google Maps
+                </a>
               </div>
             </div>
           </div>

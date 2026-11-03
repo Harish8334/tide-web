@@ -61,7 +61,7 @@ test.describe('Cross-Device Responsiveness Suite', () => {
 
     // Title and syllabus accordion should be visible
     await expect(page.locator('h1')).toBeVisible();
-    const enrollBtn = page.getByRole('link', { name: 'Enroll Now in Live Batch 🚀' });
+    const enrollBtn = page.getByRole('link', { name: /Enroll Now in Live Batch/i });
     await expect(enrollBtn).toBeVisible();
   });
 

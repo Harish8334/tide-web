@@ -80,13 +80,13 @@ export default function Navbar() {
               <Flame size={12} style={{ marginRight: 4, display: 'inline' }} /> ADMISSIONS OPEN
             </span>
             <span className={styles.announcementText}>
-              CSIR-NET JRF &amp; GATE 2026-27 Comprehensive Batches Starting Soon! Get 50% Early Bird Scholarship.
+              TRB Physics Online &amp; Offline Classes: PG TRB, UG TRB, POLY TRB, TN SET, CSIR-NET, JEE &amp; NEET Batches Open!
             </span>
           </div>
           <div className={styles.announcementRight}>
-            <a href="tel:+919876543210" className={styles.phoneLink}>
+            <a href="tel:9994854604" className={styles.phoneLink}>
               <Phone size={13} className={styles.phoneIcon} />
-              <span>Helpline: +91 98765 43210</span>
+              <span>Helpline: 9994854604 / 9994850604</span>
             </a>
             <Link href="/contact" className={styles.callbackLink}>
               Request Callback
@@ -105,7 +105,7 @@ export default function Navbar() {
               <div className={styles.logoTitle}>
                 Tide <span>Physics</span> Academy
               </div>
-              <div className={styles.logoSub}>Premier Institute for Physical Sciences</div>
+              <div className={styles.logoSub}>PHYSICS (MSc., &amp; BSc Level Training Centre)</div>
             </div>
           </Link>
 
@@ -182,7 +182,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         <div
-          className={`${styles.mobileDrawer} ${mobileOpen ? styles.drawerOpen : ''}`}
+          className={`${styles.mobileDrawer} ${mobileOpen ? styles.mobileDrawerOpen : ''}`}
           aria-hidden={!mobileOpen}
           {...(!mobileOpen ? { inert: true } : {})}
         >
@@ -278,11 +278,14 @@ export default function Navbar() {
 
             {/* Helpline Section in Drawer */}
             <div className={styles.drawerHelpline}>
-              <div className={styles.helplineLabel}>Need Admission Guidance?</div>
-              <a href="tel:+919876543210" className={styles.drawerPhoneLink}>
-                <Phone size={14} style={{ marginRight: 6 }} /> Call +91 98765 43210
+              <div className={styles.helplineLabel}>Need Admission / App Support?</div>
+              <a href="tel:9994854604" className={styles.drawerPhoneLink}>
+                <Phone size={14} style={{ marginRight: 6 }} /> Call 9994854604
               </a>
-              <div className={styles.helplineSub}>Daily 8:00 AM – 9:00 PM (IST)</div>
+              <a href="tel:9994850604" className={styles.drawerPhoneLink} style={{ marginTop: '0.35rem' }}>
+                <Phone size={14} style={{ marginRight: 6 }} /> Call 9994850604
+              </a>
+              <div className={styles.helplineSub}>Daily 8:30 AM – 7:30 PM (IST)</div>
             </div>
           </div>
         </div>

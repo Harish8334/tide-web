@@ -5,22 +5,22 @@ test.describe('Course Catalogue & Discovery', () => {
   test('should display public course catalogue with filters and search bar', async ({ page }) => {
     await page.goto('/courses');
     await expect(page.locator('input[placeholder*="Search by title"]')).toBeVisible();
-    await expect(page.getByText('Advanced Quantum Mechanics')).toBeVisible();
-    await expect(page.getByText('Classical Electrodynamics')).toBeVisible();
+    await expect(page.getByText('PG TRB Physics')).toBeVisible();
+    await expect(page.getByText('Education & Psychology TRB')).toBeVisible();
   });
 
   test('should filter courses by search query', async ({ page }) => {
     await page.goto('/courses');
     const searchInput = page.locator('input[placeholder*="Search by title"]');
-    await searchInput.fill('Quantum');
-    await expect(page.getByText('Advanced Quantum Mechanics')).toBeVisible();
+    await searchInput.fill('TRB');
+    await expect(page.getByText('PG TRB Physics')).toBeVisible();
   });
 
   test('should filter courses by category buttons', async ({ page }) => {
     await page.goto('/courses');
-    const csirFilter = page.getByRole('button', { name: 'CSIR-NET/GATE' });
-    await csirFilter.click();
-    await expect(page.getByText('CSIR-NET Physical Sciences Comprehensive')).toBeVisible();
+    const trbFilter = page.getByRole('button', { name: 'TRB Exams' });
+    await trbFilter.click();
+    await expect(page.getByText('PG TRB Physics')).toBeVisible();
   });
 
   test('should display course cards with prices and enrolled statistics', async ({ page }) => {
@@ -42,7 +42,7 @@ test.describe('Course Catalogue & Discovery', () => {
     await expect(page.getByText(/Tide Physics Academy/i).first()).toBeVisible();
     await expect(page.getByText(/Comprehensive Course Syllabus/i)).toBeVisible();
     await expect(page.getByText(/₹4,999|₹[0-9,]+/).first()).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Enroll Now in Live Batch 🚀' })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Enroll Now in Live Batch/i })).toBeVisible();
   });
 
 

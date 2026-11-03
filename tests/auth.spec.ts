@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Authentication Flows', () => {
   test('should render the login page with form elements and quick demo buttons', async ({ page }) => {
     await page.goto('/login');
-    await expect(page).toHaveTitle(/PhysicsCoach Pro/);
+    await expect(page).toHaveTitle(/Tide Physics Academy/i);
     await expect(page.locator('input[type="email"]')).toBeVisible();
     await expect(page.locator('input[type="password"]')).toBeVisible();
     await expect(page.getByText('Student Demo')).toBeVisible();

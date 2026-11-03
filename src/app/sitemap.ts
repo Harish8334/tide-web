@@ -73,7 +73,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Ensure default fallback courses are represented
-  const fallbackIds = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'];
+  const fallbackIds = [
+    'pg-trb',
+    'edu-psychology-trb',
+    'ug-trb',
+    'poly-trb',
+    'tn-set',
+    'ap-trb',
+    'tn-scert-trb',
+    'engg-trb',
+    'csir-net',
+    'jee',
+    'neet',
+    'c1',
+    'c2',
+    'c3',
+  ];
   const existingUrls = new Set(courseRoutes.map((r) => r.url));
   const fallbackRoutes: MetadataRoute.Sitemap = fallbackIds
     .filter((id) => !existingUrls.has(`${BASE_URL}/courses/${id}`))

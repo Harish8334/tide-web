@@ -1,5 +1,6 @@
 /* src/app/admin/layout.module.css */
-.container {
+.container,
+.layout {
   display: flex;
   min-height: 100vh;
   background-color: var(--color-bg);
@@ -8,7 +9,7 @@
 
 .sidebar {
   width: 270px;
-  background-color: var(--color-surface);
+  background-color: #FFFFFF;
   border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
@@ -18,6 +19,10 @@
   z-index: 50;
   flex-shrink: 0;
   transition: transform var(--transition-normal);
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  color: #0F172A;
 }
 
 .sidebarHeader {
@@ -50,8 +55,8 @@
 
 .brandText {
   font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
+  font-weight: 800;
+  color: #0F172A !important;
 }
 
 .adminBadge {
@@ -76,9 +81,9 @@
 }
 
 .sectionLabel {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748B !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.75rem 0.75rem 0.35rem;
@@ -90,23 +95,36 @@
   gap: 0.85rem;
   padding: 0.65rem 0.85rem;
   border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
+  color: #334155 !important;
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all var(--transition-fast);
 }
 
+.navItem svg {
+  color: #64748B;
+  transition: color var(--transition-fast);
+}
+
 .navItem:hover {
-  background-color: var(--color-surface-hover);
-  color: var(--color-text-primary);
+  background-color: #F1F5F9;
+  color: #0F172A !important;
+}
+
+.navItem:hover svg {
+  color: #0F172A;
 }
 
 .navItemActive {
-  background-color: rgba(220, 38, 38, 0.15);
-  color: #EF4444;
-  font-weight: 600;
-  border-left: 3px solid #EF4444;
+  background-color: rgba(220, 38, 38, 0.1) !important;
+  color: #DC2626 !important;
+  font-weight: 700;
+  border-left: 3px solid #DC2626;
+}
+
+.navItemActive svg {
+  color: #DC2626 !important;
 }
 
 .sidebarFooter {
@@ -121,9 +139,10 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem;
+  padding: 0.65rem;
   border-radius: var(--radius-md);
-  background: var(--color-surface-hover);
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
 }
 
 .userAvatar {
@@ -137,7 +156,6 @@
   justify-content: center;
   font-weight: 700;
   font-size: 0.9rem;
-  flex-shrink: 0;
 }
 
 .userInfo {
@@ -146,9 +164,9 @@
 }
 
 .userName {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0F172A !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

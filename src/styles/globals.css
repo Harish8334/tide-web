@@ -187,8 +187,69 @@ p {
   line-height: 1.65;
 }
 
-/* High-contrast rules for dark surfaces, heroes, sidebars, and footers */
-[class*="sidebar"],
+/* Base Layout Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width, 1280px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.section-header p {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FFB800;
+  background: rgba(255, 184, 0, 0.12);
+  border: 1px solid rgba(255, 184, 0, 0.28);
+  padding: 0.25rem 0.85rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  align-self: center;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FFB800 0%, #FF6600 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* High-contrast rules for dark surfaces, heroes, and footers */
 [class*="hero"],
 [class*="leftPanel"],
 [class*="footer"],
@@ -203,7 +264,6 @@ p {
   --text-muted: #CBD5E1;
 }
 
-[class*="sidebar"] p,
 [class*="hero"] p,
 [class*="leftPanel"] p,
 [class*="footer"] p,
@@ -211,6 +271,33 @@ p {
 .dark p,
 [data-theme="dark"] p {
   color: #E2E8F0;
+}
+
+/* EXCEPTION: Light/White Cards inside heroes must keep dark, readable text */
+[class*="hero"] [class*="enquiryCard"],
+[class*="hero"] [class*="enquiryCard"] p,
+[class*="hero"] [class*="enquiryDesc"],
+[class*="hero"] [class*="Card"],
+[class*="hero"] [class*="card"] {
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --text: #0F172A;
+  --text-secondary: #475569;
+}
+
+[class*="hero"] [class*="enquiryCard"] p,
+[class*="hero"] [class*="enquiryDesc"],
+[class*="hero"] [class*="Card"] p,
+[class*="hero"] [class*="card"] p {
+  color: #475569 !important;
+}
+
+[class*="hero"] [class*="enquiryCard"] h1,
+[class*="hero"] [class*="enquiryCard"] h2,
+[class*="hero"] [class*="enquiryCard"] h3,
+[class*="hero"] [class*="enquiryTitle"] {
+  color: #1E1B4B !important;
 }
 
 /* ============================================================

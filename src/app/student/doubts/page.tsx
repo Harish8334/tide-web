@@ -46,7 +46,7 @@ export default function AskDoubtPage() {
   const [filter, setFilter] = useState<'all' | 'pending' | 'answered'>('all');
 
   const [form, setForm] = useState({
-    course: 'M.Sc Quantum Mechanics',
+    course: 'PG TRB Physics',
     subject: '',
     question: '',
   });
@@ -114,10 +114,17 @@ export default function AskDoubtPage() {
                 value={form.course}
                 onChange={(e) => setForm({ ...form, course: e.target.value })}
               >
-                <option value="M.Sc Quantum Mechanics">M.Sc Quantum Mechanics</option>
-                <option value="CSIR-NET JRF Super 30">CSIR-NET JRF Super 30</option>
-                <option value="GATE Physics Comprehensive">GATE Physics Comprehensive</option>
-                <option value="B.Ed Pedagogy">B.Ed Pedagogy</option>
+                <option value="PG TRB Physics">PG TRB Physics</option>
+                <option value="Education & Psychology TRB">Education &amp; Psychology TRB</option>
+                <option value="UG TRB Physics">UG TRB Physics</option>
+                <option value="POLY TRB Physics">POLY TRB Physics</option>
+                <option value="TN SET Physical Sciences">TN SET Physical Sciences</option>
+                <option value="AP TRB Physics">AP TRB Physics</option>
+                <option value="TN SCERT TRB">TN SCERT TRB</option>
+                <option value="Engg. TRB Physics">Engg. TRB Physics</option>
+                <option value="CSIR - NET Physical Science">CSIR - NET Physical Science</option>
+                <option value="JEE Physics">JEE Physics</option>
+                <option value="NEET Physics">NEET Physics</option>
               </select>
             </div>
 

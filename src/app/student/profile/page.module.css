@@ -133,6 +133,202 @@
   margin-bottom: 0.5rem;
 }
 
+/* ── Application Helpdesk & Student Support Card ── */
+.supportCard {
+  background: var(--surface);
+  border: 2px solid rgba(103, 61, 230, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  box-shadow: 0 4px 20px rgba(59, 12, 117, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.supportCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #D81B60, #673DE6, #FF6600);
+}
+
+.supportBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #673DE6;
+  background: rgba(103, 61, 230, 0.1);
+  border-radius: 999px;
+}
+
+.supportTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.supportNote {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  background: var(--color-bg-subtle);
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid #673DE6;
+}
+
+.helplineGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.helplineRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.helplineNumber {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  font-family: monospace;
+  letter-spacing: 0.03em;
+}
+
+.helplineActions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.helplineCallBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #16A34A;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.helplineCallBtn:hover {
+  opacity: 0.9;
+}
+
+.helplineWaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #25D366;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.helplineWaBtn:hover {
+  opacity: 0.9;
+}
+
+.locationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 0.85rem;
+}
+
+.locationHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.locationAddress {
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.landmarkTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #FEF3C7;
+  color: #92400E;
+  border-radius: var(--radius-md);
+  border: 1px solid #FDE68A;
+}
+
+.mapPreview {
+  width: 100%;
+  height: 140px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mapsDirectLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #3B0C75, #673DE6);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform 0.15s, opacity 0.2s;
+}
+
+.mapsDirectLink:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 900px) {
   .headerCard {
     flex-direction: column;
@@ -144,5 +340,9 @@
   }
   .twoCols {
     grid-template-columns: 1fr;
+  }
+  .helplineRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

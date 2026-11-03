@@ -8,7 +8,7 @@
   background: linear-gradient(135deg, #1E1B4B 0%, #3B0C75 50%, #590FB3 100%);
   color: #FFFFFF;
   padding: 5rem 1.5rem 4rem;
-  text-align: center;
+  text-align: left;
 }
 
 .heroInner {
@@ -27,17 +27,137 @@
   letter-spacing: 0.1em;
 }
 
+/* ── Hero Grid (two-column layout) ── */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3.5rem;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroGraphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .heroTitle {
-  font-size: clamp(2.3rem, 4.5vw, 3.2rem);
+  font-size: clamp(1.85rem, 3.5vw, 2.8rem);
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.heroLead {
+  font-size: 1.05rem;
+  color: #CBD5E1;
+  line-height: 1.7;
 }
 
 .heroSubtitle {
   font-size: 1.15rem;
   color: #E2E8F0;
   line-height: 1.65;
+}
+
+/* Stats Row */
+.statsRow {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statNum {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFB800;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: #CBD5E1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Physics Graphic Card */
+.graphicCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  width: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22C55E;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.graphicBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.equation {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.75rem 1.1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.labHighlight {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 102, 0, 0.12);
+  border: 1px solid rgba(255, 102, 0, 0.25);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FB923C;
 }
 
 .section {
@@ -221,6 +341,159 @@
   color: #64748B;
 }
 
+/* Faculty Extra Styles */
+.facultySection {
+  background: #F1F5F9;
+}
+
+.facultyDivider {
+  width: 100%;
+  height: 1px;
+  background: #E2E8F0;
+  margin: 0.5rem 0;
+}
+
+.facultySpecialty {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.facultyExp {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #16A34A;
+  margin-top: 0.25rem;
+}
+
+/* Icon Wrapper in Values */
+.iconWrapper,
+.valIconWrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #EDE9FE;
+  color: #3B0C75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.valIcon {
+  color: #3B0C75;
+}
+
+/* Timeline / Milestones */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 90px 24px 1fr;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timelineItem:hover {
+  transform: translateY(-2px);
+  border-color: #673DE6;
+  box-shadow: 0 8px 24px rgba(59, 12, 117, 0.08);
+}
+
+.timelineYear {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #FF6600;
+}
+
+.timelineMarker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #673DE6;
+  border: 3px solid #EDE9FE;
+  margin-top: 6px;
+}
+
+.timelineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.timelineTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1E1B4B;
+}
+
+.timelineDesc {
+  font-size: 0.92rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 4rem 1.5rem 6rem;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #1E1B4B 0%, #3B0C75 50%, #590FB3 100%);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 20px 50px rgba(59, 12, 117, 0.25);
+}
+
+.ctaCard h2 {
+  color: #FFFFFF;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+}
+
+.ctaCard p {
+  color: #E2E8F0;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 3.5rem 1.25rem 2.5rem;
@@ -233,6 +506,13 @@
   }
   .facultyGrid {
     grid-template-columns: 1fr;
+  }
+  .timelineItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .timelineMarker {
+    display: none;
   }
 }
 

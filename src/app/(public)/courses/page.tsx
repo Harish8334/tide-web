@@ -12,7 +12,7 @@ import { useToast } from '@/context/ToastContext';
 import styles from './page.module.css';
 import { Search, Filter, BookOpen, X } from 'lucide-react';
 
-const CATEGORIES = ['All', 'M.Sc Physics', 'CSIR-NET/GATE', 'B.Ed & Pedagogy', 'Research & Lab'];
+const CATEGORIES = ['All', 'TRB Exams', 'TN SET & CSIR-NET', 'School & Competitive'];
 const LEVELS = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
 interface CourseItem {
@@ -30,58 +30,114 @@ interface CourseItem {
 
 const FALLBACK_COURSES: CourseItem[] = [
   {
-    _id: 'c1',
-    title: 'Advanced Quantum Mechanics',
-    description: 'Schrödinger equation in 3D, angular momentum algebra, identical particles, and time-independent perturbation theory.',
-    category: 'M.Sc Physics',
+    _id: 'pg-trb',
+    title: 'PG TRB Physics (Post Graduate Assistant)',
+    description: 'Targeted coaching for Tamil Nadu Post Graduate Assistant Teachers Examination in Physics. Classical, Quantum, Solid State, Nuclear, Electronics & Optics with unit tests & PYQ discussions.',
+    category: 'TRB Exams',
     level: 'Advanced',
-    instructor: 'Dr. Rajesh Sharma',
-    enrolledCount: 342,
+    instructor: 'Tide Faculty Team',
+    price: 4999,
+    enrolledCount: 840,
   },
   {
-    _id: 'c2',
-    title: 'Classical Electrodynamics',
-    description: 'Maxwell equations in tensor notation, relativistic kinematics, radiation by moving charges, and wave guides.',
-    category: 'M.Sc Physics',
-    level: 'Advanced',
-    instructor: 'Dr. Vikram Malhotra',
-    enrolledCount: 420,
-  },
-  {
-    _id: 'c3',
-    title: 'CSIR-NET Physical Sciences Comprehensive',
-    description: 'Complete syllabus with rigorous previous year question solving, full-length mock tests, and doubt sessions.',
-    category: 'CSIR-NET/GATE',
-    level: 'Advanced',
-    instructor: 'Prof. Ananya Sen',
-    enrolledCount: 680,
-  },
-  {
-    _id: 'c4',
-    title: 'B.Ed Physics Pedagogy & Practical Demonstrations',
-    description: 'Modern pedagogical methodologies, active learning models, curriculum structuring, and micro-teaching practices.',
-    category: 'B.Ed & Pedagogy',
+    _id: 'edu-psychology-trb',
+    title: 'Education & Psychology TRB (Pedagogy & GK)',
+    description: 'High-scoring pedagogy module for all TRB competitive exams: Educational Psychology, Child Development, Teaching Methodology, Educational Policies, and General Knowledge with 3,000+ MCQs.',
+    category: 'TRB Exams',
     level: 'Intermediate',
-    instructor: 'Faculty Council',
-    enrolledCount: 155,
+    instructor: 'Dr. Education Specialist',
+    price: 2999,
+    enrolledCount: 920,
   },
   {
-    _id: 'c5',
-    title: 'Core Classical Mechanics & Special Relativity',
-    description: 'Lagrangian and Hamiltonian dynamics, canonical transformations, Hamilton-Jacobi theory, and relativistic kinematics.',
-    category: 'CSIR-NET/GATE',
+    _id: 'ug-trb',
+    title: 'UG TRB Physics (Graduate Teacher / B.T. Assistant)',
+    description: 'Comprehensive coaching for Tamil Nadu Graduate Teachers (UG TRB) in Physics. Full Samacheer Kalvi & Graduate syllabus with chapter-wise DPPs and model test series.',
+    category: 'TRB Exams',
+    level: 'Intermediate',
+    instructor: 'Tide Faculty Team',
+    price: 4499,
+    enrolledCount: 710,
+  },
+  {
+    _id: 'poly-trb',
+    title: 'POLY TRB Physics (Polytechnic College Lecturers)',
+    description: 'Specialized coaching for Tamil Nadu Government Polytechnic College Lecturer recruitment. High-yield engineering physics concepts, numerical calculations, and CBT simulator.',
+    category: 'TRB Exams',
     level: 'Advanced',
-    instructor: 'Dr. Rajesh Sharma',
+    instructor: 'Senior Physics Faculty',
+    price: 5499,
+    enrolledCount: 650,
+  },
+  {
+    _id: 'tn-set',
+    title: 'TN SET Physical Sciences (Assistant Professor)',
+    description: 'Tamil Nadu State Eligibility Test (TN SET) Physical Sciences. Complete preparation for Paper 1 (Teaching & Research Aptitude) + Paper 2 (Core Physics) with 15-year solved papers.',
+    category: 'TN SET & CSIR-NET',
+    level: 'Advanced',
+    instructor: 'Prof. Ananya Sen & Panel',
+    price: 5999,
+    enrolledCount: 580,
+  },
+  {
+    _id: 'ap-trb',
+    title: 'AP TRB (Assistant Professor TRB - Govt Arts & Science)',
+    description: 'Prestige coaching for Collegiate Education Assistant Professor recruitment in Physics. Deep postgraduate curriculum, research orientation, and interview guidance.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    instructor: 'Dr. Rajesh Sharma & Team',
+    price: 6499,
+    enrolledCount: 520,
+  },
+  {
+    _id: 'tn-scert-trb',
+    title: 'TN SCERT TRB Physics (Senior / DIET Lecturer)',
+    description: 'Structured preparation for Tamil Nadu SCERT & DIET Lecturer recruitment examinations in Physics with pedagogy, curriculum methodology, and full-length model exams.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    instructor: 'Tide Faculty Panel',
+    price: 5499,
+    enrolledCount: 430,
+  },
+  {
+    _id: 'engg-trb',
+    title: 'Engg. TRB Physics (Govt Engineering Colleges)',
+    description: 'Targeted coaching for Tamil Nadu Government Engineering Colleges Lecturer recruitment in Physics. Advanced mathematical methods, electrodynamics, quantum physics, and thermodynamics.',
+    category: 'TRB Exams',
+    level: 'Advanced',
+    instructor: 'Senior Engineering Physics Panel',
+    price: 5999,
     enrolledCount: 490,
   },
   {
-    _id: 'c6',
-    title: 'Modern Physics Lab Simulations & Research Methods',
-    description: 'Hands-on virtual lab training in Millikan oil drop, Franck-Hertz, Zeeman effect, and computational data fitting.',
-    category: 'Research & Lab',
-    level: 'Beginner',
-    instructor: 'Dr. Vikram Malhotra',
-    enrolledCount: 180,
+    _id: 'csir-net',
+    title: 'CSIR - NET Physical Science (JRF & Lectureship)',
+    description: 'National benchmark coaching for CSIR UGC-NET JRF in Physical Sciences. 350+ hours live classes covering Parts A, B, and C with full mock test series and printed study kits.',
+    category: 'TN SET & CSIR-NET',
+    level: 'Advanced',
+    instructor: 'Prof. Ananya Sen (CSIR-NET AIR 3)',
+    price: 6999,
+    enrolledCount: 1120,
+  },
+  {
+    _id: 'jee',
+    title: 'JEE Physics (Main & Advanced Foundation & Ranker)',
+    description: 'Conceptual intuition and rigorous numerical problem-solving for IIT-JEE Main & Advanced. In-depth HC Verma, Irodov, and 20-year PYQ mastery.',
+    category: 'School & Competitive',
+    level: 'Intermediate',
+    instructor: 'IITian Physics Faculty',
+    price: 4999,
+    enrolledCount: 880,
+  },
+  {
+    _id: 'neet',
+    title: 'NEET Physics (Medical Entrance Score Booster 160+)',
+    description: 'Master NEET Physics with line-by-line NCERT coverage, speed-solving tricks, formula handbooks, daily 50-MCQ sheets, and full-length OMR test simulation.',
+    category: 'School & Competitive',
+    level: 'Intermediate',
+    instructor: 'Medical Physics Mentor',
+    price: 4499,
+    enrolledCount: 950,
   },
 ];
 
@@ -91,8 +147,8 @@ function CoursesContent() {
   const { isSignedIn } = useAuth();
   const { showToast } = useToast();
 
-  const [courses, setCourses] = useState<CourseItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState<CourseItem[]>(FALLBACK_COURSES);
+  const [loading, setLoading] = useState(false);
 
   // Read URL query params
   const initialCategory = searchParams.get('category') || 'All';
@@ -202,7 +258,7 @@ function CoursesContent() {
         </div>
       </div>
 
-      <div className="container" style={{ paddingBottom: '4rem' }}>
+      <div className={styles.container} style={{ paddingBottom: '4rem' }}>
         {/* Filter Controls */}
         <div className={styles.filtersBar}>
           <div className={styles.searchWrapper}>

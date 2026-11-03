@@ -25,5 +25,13 @@ if (fs.existsSync(staticSrc)) {
   console.log('✓ Copied .next/static to .next/standalone/.next/static');
 }
 
+// 3. Ensure custom runner (tide.js) is in standalone
+const tideSrc = path.join(rootDir, 'tide.js');
+const tideDest = path.join(standaloneDir, 'tide.js');
+if (fs.existsSync(tideSrc)) {
+  fs.copyFileSync(tideSrc, tideDest);
+  console.log('✓ Copied tide.js to .next/standalone/tide.js');
+}
+
 console.log('\n🎉 Standalone package is ready for deployment in .next/standalone!');
-console.log('You can run: node .next/standalone/server.js');
+console.log('You can run: node .next/standalone/server.js or node .next/standalone/tide.js');

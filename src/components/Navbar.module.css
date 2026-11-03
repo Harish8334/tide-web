@@ -390,7 +390,8 @@
   pointer-events: none;
 }
 
-.mobileDrawerOpen {
+.mobileDrawerOpen,
+.drawerOpen {
   right: 0 !important;
   visibility: visible !important;
   pointer-events: auto !important;

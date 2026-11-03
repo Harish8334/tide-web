@@ -14,8 +14,8 @@ const VALUES = [
   },
   {
     icon: <Atom size={28} className={styles.valIcon} />,
-    title: 'Research-Oriented Approach',
-    desc: 'Our curriculum goes beyond exam syllabus, exposing students to cutting-edge research paradigms and laboratory methodologies essential for CSIR-NET & GATE.',
+    title: 'Research & Exam-Oriented Approach',
+    desc: 'Our curriculum combines first-principles physics intuition with high-yield problem solving, question shortcuts, and 10-year previous papers analysis for TRB, SET & NET examinations.',
   },
   {
     icon: <Users size={28} className={styles.valIcon} />,
@@ -25,7 +25,7 @@ const VALUES = [
   {
     icon: <Award size={28} className={styles.valIcon} />,
     title: 'Proven Track Record',
-    desc: 'Consistently producing top 100 All India Ranks in CSIR-NET, GATE, and premier university M.Sc entrances across the nation.',
+    desc: 'Consistently producing state top ranks in PG TRB, UG TRB, Polytechnic TRB, AP TRB, TN SET, CSIR-NET, JEE & NEET across Tamil Nadu.',
   },
 ];
 
@@ -61,9 +61,9 @@ const FACULTY = [
 
 const MILESTONES = [
   { year: '2020', title: 'Institute Inception', desc: 'Started with 45 dedicated students and a mission to democratize elite Physics coaching.' },
-  { year: '2022', title: 'National Recognition', desc: 'Over 500 alumni cleared CSIR-NET and GATE with 12 students in the Top 50 AIR.' },
-  { year: '2024', title: 'Digital Innovation', desc: 'Launched full interactive live class suite, smart OMR scanning, and virtual lab simulations.' },
-  { year: '2026', title: '2,000+ Active Scholars', desc: 'India’s fastest growing dedicated physics coaching community with a 95% pass rate.' },
+  { year: '2022', title: 'Statewide Recognition', desc: 'Over 500 alumni cleared PG TRB, POLY TRB, TN-SET and CSIR-NET with state top ranks.' },
+  { year: '2024', title: 'Digital & Classroom Innovation', desc: 'Launched full interactive live class suite, smart OMR scanning, and modern classroom offline center in Tiruvannamalai.' },
+  { year: '2026', title: '3,000+ Active Scholars', desc: 'Tamil Nadu’s #1 dedicated TRB Physics coaching community with high selection rates.' },
 ];
 
 export default function AboutPage() {
@@ -78,11 +78,11 @@ export default function AboutPage() {
                 <Atom size={14} /> About Tide Physics Academy
               </div>
               <h1 className={styles.heroTitle}>
-                Built by Physicists.<br />
-                <span className="gradient-text">For Future Physicists.</span>
+                PHYSICS (MSc., &amp; BSc Level Training Centre)<br />
+                <span className="gradient-text">PG TRB, UG TRB, POLY. TRB, AP TRB, TN SET, SCERT, Engg. TRB Exams Coaching.</span>
               </h1>
               <p className={styles.heroLead}>
-                Tide Physics Academy was established with a singular vision: to bridge the gap between abstract physics theory and competitive mastery. We empower students targeting M.Sc, CSIR-NET, GATE, and B.Ed pedagogy exams with conceptual depth and rigorous problem-solving skills.
+                Tide Physics Academy is Tamil Nadu&apos;s foremost institute for TRB Physics examinations. We specialize in PG TRB, Education &amp; Psychology TRB, UG TRB, POLYTECHNIC TRB, AP TRB (Assistant Professor), TN SET, ENGINEERING TRB, SCERT TRB, CSIR-NET, JEE &amp; NEET with high-impact Online &amp; Offline Classes.
               </p>
               <div className={styles.statsRow}>
                 <div className={styles.statBox}>
