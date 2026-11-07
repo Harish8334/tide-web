@@ -1,8 +1,9 @@
 // src/app/(public)/page.tsx
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import CourseCard from '@/components/CourseCard';
 import { courseApi } from '@/lib/api';
 import { useToast } from '@/context/ToastContext';
@@ -14,8 +15,6 @@ import {
   MessageSquare, 
   Smartphone, 
   Rocket, 
-  Gift, 
-  Radio, 
   Sparkles, 
   Download, 
   ArrowRight,
@@ -24,6 +23,12 @@ import {
   ExternalLink,
   CheckCircle,
   Navigation,
+  ChevronLeft,
+  ChevronRight,
+  Award,
+  Play,
+  Check,
+  Send,
 } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -39,10 +44,103 @@ interface CourseData {
   features: string[];
 }
 
+// 1. Success Students Bio (UG TRB-2024)
+const SUCCESS_STUDENTS = [
+  {
+    exam: 'UG TRB-2024',
+    name: 'VENU PRIYA T',
+    score: '120',
+    regNo: 'Reg.NO:435030218',
+    image: '/images/results/venu-priya.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'BHUVANESWARI S',
+    score: '103.5',
+    regNo: 'Reg.NO:438010032',
+    image: '/images/results/bhuvaneswari.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'AMBIKA',
+    score: '102.5',
+    regNo: 'Reg.NO:412030148',
+    image: '/images/results/ambika.jpeg',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'KILLIVALAVAN G',
+    score: '101.5',
+    regNo: 'Reg.NO:436010176',
+    image: '/images/results/killivalavan.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'KARUNANITHI',
+    score: '101',
+    regNo: 'Reg.NO:429010011',
+    image: '/images/results/karunanithi.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'VINOTHKUMAR A',
+    score: '100.5',
+    regNo: 'Reg.NO:406020025',
+    image: '/images/results/vinothkumar.jpeg',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'GOPINATH',
+    score: '99',
+    regNo: 'Reg.NO:434010247',
+    image: '/images/results/gopinath.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'SELVAPRIYA',
+    score: '95.5',
+    regNo: 'Reg.NO:422050449',
+    image: '/images/results/selvapriya.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'HEMA MAALINI R',
+    score: '95.5',
+    regNo: 'Reg.NO:437030074',
+    image: '/images/results/hema-maalini.png',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'AYYAPPAN S',
+    score: '93.5',
+    regNo: 'Reg.NO:417040069',
+    image: '/images/results/ayyappan.jpeg',
+  },
+  {
+    exam: 'UG TRB-2024',
+    name: 'BALAJI R',
+    score: '88.5',
+    regNo: 'Reg.NO:429010028',
+    image: '/images/results/balaji.png',
+  },
+];
+
+// 2. YouTube & Photos Gallery
+const GALLERY_PHOTOS = [
+  { src: '/images/gallery/gallery-1.jpeg', title: 'Interactive TRB Classroom Batch' },
+  { src: '/images/gallery/gallery-2.jpeg', title: 'Top Rankers Felicitation Ceremony' },
+  { src: '/images/gallery/gallery-3.jpeg', title: 'Faculty Physics Seminar Hall' },
+  { src: '/images/gallery/gallery-4.jpeg', title: 'Real-time CBT Mock Simulator Lab' },
+  { src: '/images/gallery/gallery-5.jpeg', title: 'Personalized 1-on-1 Faculty Mentorship' },
+  { src: '/images/gallery/gallery-6.jpeg', title: 'Annual State Toppers Award Function' },
+  { src: '/images/gallery/gallery-7.jpeg', title: 'Printed Notes Distribution & Library' },
+];
+
+// 3. Courses Data (TRB Exams focus with Education & Psychology TRB last)
 const COURSES_DATA: CourseData[] = [
   {
     id: 'pg-trb',
-    title: 'PG TRB Physics (Post Graduate Assistant)',
+    title: 'PG TRB Physics',
     description: 'Targeted coaching for Tamil Nadu Post Graduate Assistant Teachers Examination in Physics. Classical, Quantum, Solid State, Nuclear, Electronics & Optics with unit tests & PYQ discussions.',
     category: 'TRB Exams',
     price: 4999,
@@ -57,24 +155,8 @@ const COURSES_DATA: CourseData[] = [
     ],
   },
   {
-    id: 'edu-psychology-trb',
-    title: 'Education & Psychology TRB (Pedagogy & GK)',
-    description: 'High-scoring pedagogy module for all TRB competitive examinations: Educational Psychology, Child Development, Teaching Methodology, Educational Policies, and General Knowledge with 3,000+ MCQs.',
-    category: 'TRB Exams',
-    price: 2999,
-    originalPrice: 5999,
-    level: 'Intermediate',
-    isLive: true,
-    features: [
-      'Child Development & Learning Theories',
-      '3,000+ Topic-wise Pedagogy MCQs',
-      'Tamil Nadu Education System & Policies',
-      'Weekly Full-Length Model Tests',
-    ],
-  },
-  {
     id: 'ug-trb',
-    title: 'UG TRB Physics (Graduate Teacher / B.T. Assistant)',
+    title: 'UG TRB Physics',
     description: 'Comprehensive coaching for Tamil Nadu Graduate Teachers (UG TRB) in Physics. Full Samacheer Kalvi & Graduate syllabus with chapter-wise DPPs and model test series.',
     category: 'TRB Exams',
     price: 4499,
@@ -89,8 +171,24 @@ const COURSES_DATA: CourseData[] = [
     ],
   },
   {
+    id: 'ap-trb',
+    title: 'AP TRB (Assistant Professor)',
+    description: 'Prestige coaching for Collegiate Education Assistant Professor recruitment in Physics. Deep postgraduate curriculum, research orientation, and interview guidance.',
+    category: 'TRB Exams',
+    price: 6499,
+    originalPrice: 12999,
+    level: 'Advanced',
+    isLive: true,
+    features: [
+      'Postgraduate & Core Syllabus Mastery',
+      'High-level Derivations & MCQ Shortcuts',
+      'Interview Prep & Viva Voce Guidance',
+      'Subject Expert Mentorship',
+    ],
+  },
+  {
     id: 'poly-trb',
-    title: 'POLY TRB Physics (Polytechnic College Lecturers)',
+    title: 'POLY TRB (Lecturer)',
     description: 'Specialized coaching for Tamil Nadu Government Polytechnic College Lecturer recruitment. High-yield engineering physics concepts, numerical calculations, and CBT simulator.',
     category: 'TRB Exams',
     price: 5499,
@@ -100,13 +198,13 @@ const COURSES_DATA: CourseData[] = [
     features: [
       'Engineering Physics & Core M.Sc Topics',
       'Numerical Problem Solving Techniques',
-      'All-India Level CBT Mock Test Engine',
+      'Similar TRB CBT Mock Test Engine',
       'Printed Formula Handbook Delivered',
     ],
   },
   {
     id: 'tn-set',
-    title: 'TN SET Physical Sciences (Assistant Professor)',
+    title: 'TN SET Physical Sciences',
     description: 'Tamil Nadu State Eligibility Test (TN SET) Physical Sciences. Complete preparation for Paper 1 (Teaching & Research Aptitude) + Paper 2 (Core Physics) with 15-year solved papers.',
     category: 'TN SET & CSIR-NET',
     price: 5999,
@@ -121,169 +219,98 @@ const COURSES_DATA: CourseData[] = [
     ],
   },
   {
-    id: 'ap-trb',
-    title: 'AP TRB (Assistant Professor TRB - Govt Arts & Science)',
-    description: 'Prestige coaching for Collegiate Education Assistant Professor recruitment in Physics. Deep postgraduate curriculum, research orientation, and interview guidance.',
+    id: 'edu-psychology-trb',
+    title: 'Education & Psychology TRB',
+    description: 'High-scoring pedagogy module for all TRB competitive examinations: Educational Psychology, Child Development, Teaching Methodology, Educational Policies, and General Knowledge with 3,000+ MCQs.',
     category: 'TRB Exams',
-    price: 6499,
-    originalPrice: 12999,
-    level: 'Advanced',
-    isLive: true,
-    features: [
-      'Postgraduate & Research Core Syllabus',
-      'High-level Derivations & MCQ Shortcuts',
-      'Interview Prep & Viva Voce Guidance',
-      'Subject Expert Mentorship',
-    ],
-  },
-  {
-    id: 'tn-scert-trb',
-    title: 'TN SCERT TRB Physics (Senior / DIET Lecturer)',
-    description: 'Structured preparation for Tamil Nadu SCERT & DIET Lecturer recruitment examinations in Physics with pedagogy, curriculum methodology, and full-length model exams.',
-    category: 'TRB Exams',
-    price: 5499,
-    originalPrice: 10999,
-    level: 'Advanced',
-    isLive: true,
-    features: [
-      'SCERT / DIET Exam Syllabus Coverage',
-      'Curriculum Pedagogy & Physics Specialization',
-      'Regular Timed Online Mock Tests',
-      'Exclusive Study Compendium',
-    ],
-  },
-  {
-    id: 'engg-trb',
-    title: 'Engg. TRB Physics (Govt Engineering Colleges)',
-    description: 'Targeted coaching for Tamil Nadu Government Engineering Colleges Lecturer recruitment in Physics. Advanced mathematical methods, electrodynamics, quantum physics, and thermodynamics.',
-    category: 'TRB Exams',
-    price: 5999,
-    originalPrice: 11999,
-    level: 'Advanced',
-    isLive: true,
-    features: [
-      'Higher Technical Physics Syllabus',
-      'Formula Compendium & Derivations',
-      'Previous Years Examination Analysis',
-      'Live Interactive Problem Solving',
-    ],
-  },
-  {
-    id: 'csir-net',
-    title: 'CSIR - NET Physical Science (JRF & Lectureship)',
-    description: 'National benchmark coaching for CSIR UGC-NET JRF in Physical Sciences. 350+ hours live classes covering Parts A, B, and C with full mock test series and printed study kits.',
-    category: 'TN SET & CSIR-NET',
-    price: 6999,
-    originalPrice: 13999,
-    level: 'Advanced',
-    isLive: true,
-    features: [
-      '350+ Hours Live Smartboard Classes',
-      'Complete Part A Aptitude + Part B & C Physics',
-      'Full NTA Computer-Based Mock Simulator',
-      'Doorstep Courier of Printed Notes',
-    ],
-  },
-  {
-    id: 'jee',
-    title: 'JEE Physics (Main & Advanced Foundation & Ranker)',
-    description: 'Conceptual intuition and rigorous numerical problem-solving for IIT-JEE Main & Advanced. In-depth HC Verma, Irodov, and 20-year PYQ mastery.',
-    category: 'School & Competitive',
-    price: 4999,
-    originalPrice: 9999,
+    price: 2999,
+    originalPrice: 5999,
     level: 'Intermediate',
     isLive: true,
     features: [
-      'Concept-First Problem Solving Methodology',
-      'HC Verma, Irodov & PYQ Mastery',
-      'Weekly CBT Test Series with Negative Marking',
-      '24/7 WhatsApp Doubt Desk',
-    ],
-  },
-  {
-    id: 'neet',
-    title: 'NEET Physics (Medical Entrance Score Booster 160+)',
-    description: 'Master NEET Physics with line-by-line NCERT coverage, speed-solving tricks, formula handbooks, daily 50-MCQ sheets, and full-length OMR test simulation.',
-    category: 'School & Competitive',
-    price: 4499,
-    originalPrice: 8999,
-    level: 'Intermediate',
-    isLive: true,
-    features: [
-      'NCERT Line-by-Line Decoded',
-      'Calculation Speed Optimization Techniques',
-      'Daily 50-Question Practice Sets',
-      'Full-Length NEET OMR Simulation Exams',
+      'Child Development & Learning Theories',
+      '3,000+ Topic-wise Pedagogy MCQs',
+      'Tamil Nadu Education System & Policies',
+      'Weekly Full-Length Model Tests',
     ],
   },
 ];
 
-const WHY_CHOOSE_ITEMS = [
+// 4. Highlight Features (Faculty, Printed Notes, CBT Test Series)
+const FEATURE_HIGHLIGHTS = [
   {
-    icon: <GraduationCap size={28} color="#0056D2" />,
-    title: 'Illustrious Faculty from IITs & IISc',
-    desc: 'Learn directly from passionate Ph.D. scholars and CSIR-NET JRF rank holders with over a decade of proven teaching excellence.',
+    badge: 'EXPERT FACULTY',
+    title: 'EXPERT FACULTY – QUALITY EDUCATION',
+    intro: 'Classes are handled by highly qualified and experienced faculties, including:',
+    bullets: [
+      'SET Qualified Professors',
+      'CSIR-NET Qualified Subject Experts',
+      'Assistant Professors',
+      'Associate Professors',
+    ],
   },
   {
-    icon: <Video size={28} color="#7C3AED" />,
-    title: '1080p Interactive Smartboard Classes',
-    desc: 'Real-time two-way audio, interactive physics chalkboard, hand-raise feature, and crystal-clear whiteboard equations.',
+    badge: 'STUDY MATERIAL',
+    title: '📚 PRINTED NOTES – DOORSTEP DELIVERY',
+    intro: 'Get comprehensive, exam-oriented printed study materials delivered directly to your doorstep through postal service.',
+    bullets: [
+      '✔ Detailed Topic-Wise Notes',
+      '✔ Previous Year Questions (PYQs)',
+      '✔ Expected Questions & Important Concepts',
+      '✔ Exam-Oriented Observation Patterns',
+      '✔ Shortcuts, Formulae & Numerical Problems',
+      '✔ Complete Competitive Examination Preparation',
+    ],
   },
   {
-    icon: <BookOpen size={28} color="#0056D2" />,
-    title: 'Printed Study Kits & Handwritten Notes',
-    desc: 'Delivered to your doorstep. Detailed concept notes, formula compendiums, and previous 15 years solved papers.',
-  },
-  {
-    icon: <FileCheck2 size={28} color="#22C55E" />,
-    title: 'National Ranking CBT Test Series',
-    desc: 'Exact replica of the NTA CSIR-NET computer-based test interface with sectional cutoffs, negative marking, and All-India Rank.',
-  },
-  {
-    icon: <MessageSquare size={28} color="#F59E0B" />,
-    title: '24/7 Dedicated Doubt Resolution Desk',
-    desc: 'Never get stuck. Ask doubts during live classes or submit mathematical equations anytime on our physics symbols doubt portal.',
-  },
-  {
-    icon: <Smartphone size={28} color="#0056D2" />,
-    title: 'Seamless Mobile & Web Learning App',
-    desc: 'Attend live classes, attempt quizzes, download notes offline, and review mistake notebooks on desktop or mobile seamlessly.',
+    badge: 'CBT TEST ENGINE',
+    title: 'State Ranking CBT DEDICATIVE Test Series',
+    intro: 'State-level Computer-Based Test (CBT) - Dedicative multi-practice Unit-wise and Topic-wise test series will be PYQ’s and TRB Board exam recently conducted OMR offline exam similar manner test series, Offline & Online students have real time 3hr exam hall experience.',
+    bullets: [
+      'Unit-wise & Topic-wise Dedicative Multi-practice Exams',
+      'Previous TRB PYQs & Recent Weightage Analysis',
+      'Android & CBT-Online Simulator',
+      'OMR Offline Exam 3-Hour Exam Hall Experience',
+    ],
   },
 ];
 
-const RANKERS = [
+// 5. Reason! Why We Choose Tide Physics?
+const KEY_EXAMINATIONS = [
   {
-    name: 'Aditya Verma',
-    rank: 'AIR 4 (CSIR-NET JRF)',
-    college: 'M.Sc Delhi University',
-    quote: 'PhysicsCoach Pro transformed my preparation. The live classes felt more personal and rigorous than any offline coaching I tried. The mistake notebook helped me eliminate silly calculation slips in Paper C.',
+    title: 'UG-TRB / Graduate Assistant (BSc Level Syllabus)',
+    target: 'Middle school / Graduate teachers in Government schools.',
+    syllabus: 'Core undergraduate physics topics (Mechanics, Optics, Thermodynamics, Electricity & Magnetism, Samacheer Kalvi state board syllabus base).',
   },
   {
-    name: 'Sneha Reddy',
-    rank: 'AIR 11 (GATE Physical Sciences)',
-    college: 'IIT Madras M.Sc Alum',
-    quote: 'The faculty’s mathematical rigor in Electrodynamics and Quantum Mechanics is unmatched anywhere in India. The formula handbook and test series were crucial to my top 15 national ranking.',
+    title: 'PG-TRB / Post Graduate Assistant (MSc Level Syllabus)',
+    target: 'Higher Secondary School Teachers / PG Assistants.',
+    syllabus: 'Advanced postgraduate physics topics including Quantum Mechanics, Classical Mechanics, Statistical Mechanics, Electrodynamics, Nuclear & Particle Physics, Electronics, and Solid State Physics.',
   },
   {
-    name: 'Prakash Swaminathan',
-    rank: 'Cleared TN-SET & TRB',
-    college: 'Loyola College Chennai',
-    quote: 'The bilingual pedagogy and daily DPP problem sheets made advanced physics concepts effortless to grasp. I cleared my Assistant Professor exam in my very first attempt thanks to this platform!',
+    title: 'Polytechnic TRB & Assistant Professor TRB (MSc + Advanced Level)',
+    target: 'Lecturers in Government Polytechnic colleges and Assistant Professors in Government Arts & Science / Engineering colleges.',
+    syllabus: 'Advanced MSc physics, mathematical physics methods, and specialized competitive problem-solving.',
+  },
+  {
+    title: 'Education & Psychology Module',
+    target: 'All TRB competitive recruitment examination candidates.',
+    syllabus: 'High-yield modules covering Child Development, Educational Psychology, General Knowledge, and Teaching Methodology as required by TRB exam pattern.',
   },
 ];
 
 const FAQS = [
   {
     q: 'Why is Tide Physics Academy recognized as the Best TRB Coaching Centre in Physics?',
-    a: 'Tide Physics Academy is widely recognized as the premier TRB ACADEMY for PHYSICS in Tamil Nadu. We specialize exclusively in physics competitive examinations—including PG TRB, UG TRB, POLYTECHNIC TRB, AP TRB (Assistant Professor), TN SET, ENGINEERING TRB, and SCERT TRB. With experienced faculty, unit-wise tests, bilingual materials, and 10-year solved papers, our aspirants consistently secure top ranks.',
+    a: 'Tide Physics Academy is widely recognized as the premier TRB ACADEMY for PHYSICS in Tamil Nadu. We specialize exclusively in physics competitive examinations—including PG TRB, UG TRB, POLYTECHNIC TRB, AP TRB (Assistant Professor), TN SET, ENGINEERING TRB, and SCERT TRB. With experienced faculty, unit-wise tests, bilingual materials, and 10-year solved papers, our aspirants consistently secure state top ranks.',
   },
   {
     q: 'Does Tide Physics Academy provide both TRB Physics Online & Offline Classes?',
-    a: 'Yes! We offer both interactive live smartboard Online Classes (with HD recording replays, PDF lecture notes, and online CBT test simulator) and Classroom Offline Batches at our central campus located on Mathalangula Street, Periyar Statue Backside (Opp. Amma Medical), Tiruvannamalai - 606601.',
+    a: 'Yes! We offer both interactive live smartboard Online Classes (with HD recording replays, PDF lecture notes, and online CBT test simulator) and Classroom Offline Batches at our central campus located on Mathalangula Street, Periyar Statue Backside (Opp. Sankar DTP), Tiruvannamalai - 606601.',
   },
   {
     q: 'What competitive exams are covered under the Tide Physics curriculum?',
-    a: 'We offer specialized, result-oriented batches for: 1. PG TRB, 2. Education & Psychology TRB, 3. UG TRB, 4. POLY TRB, 5. TN SET, 6. AP TRB (Assistant Professor TRB), 7. TN SCERT TRB, 8. Engg. TRB, 9. CSIR - NET (Physical Science), 10. JEE (Main & Advanced), and 11. NEET (UG Physics).',
+    a: 'We offer specialized, result-oriented batches for: 1. PG TRB, 2. UG TRB, 3. AP TRB (Assistant Professor), 4. POLY TRB (Lecturer), 5. TN SET Physical Sciences, and 6. Education & Psychology TRB.',
   },
   {
     q: 'What are the helpline numbers for admissions and student support?',
@@ -295,48 +322,19 @@ const FAQS = [
   },
   {
     q: 'Are printed study materials and handwritten formula compendiums delivered?',
-    a: 'Yes! For all comprehensive 6-month and 12-month batches, comprehensive printed study material kits and handwritten formula compendiums are shipped via express courier right to your doorstep.',
+    a: 'Yes! For all comprehensive 6-month and 12-month batches, comprehensive printed study material kits and handwritten formula compendiums are shipped via express postal service right to your doorstep.',
   },
 ];
 
 export default function HomePage() {
-  const [courses, setCourses] = useState<CourseData[]>(COURSES_DATA);
+  const [courses] = useState<CourseData[]>(COURSES_DATA);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [callbackName, setCallbackName] = useState('');
   const [callbackPhone, setCallbackPhone] = useState('');
   const [callbackExam, setCallbackExam] = useState('PG TRB');
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const { showToast } = useToast();
-
-  useEffect(() => {
-    courseApi.getAll()
-      .then((res: unknown) => {
-        const list = (res as { data?: any[] }).data || (Array.isArray(res) ? res : []);
-        if (list.length > 0) {
-          const liveMapped: CourseData[] = list.map((c: any) => ({
-            id: c._id || c.id,
-            title: c.title,
-            description: c.description || 'Comprehensive curriculum with live interactive lectures, study materials, and tests.',
-            category: c.category || 'Physics',
-            price: c.price || 5999,
-            originalPrice: c.originalPrice || Math.round((c.price || 5999) * 1.8),
-            level: c.level || 'Advanced',
-            isLive: c.isActive !== false,
-            features: c.tags
-              ? c.tags.split(' ').filter((t: string) => t.length > 3).slice(0, 4)
-              : [
-                  '350+ Hours Live HD Classes',
-                  'Printed Theory Books Courier',
-                  'Computer-Based Mock Test Simulator',
-                  'WhatsApp Faculty Doubt Desk',
-                ],
-          }));
-          setCourses(liveMapped);
-        }
-      })
-      .catch(() => {});
-  }, []);
+  const studentsTrackRef = useRef<HTMLDivElement>(null);
 
   const filteredCourses = courses.filter((c) => {
     if (selectedCategory === 'All') return true;
@@ -352,15 +350,21 @@ export default function HomePage() {
       showToast('Please enter your name and contact number', 'warning');
       return;
     }
-    setFormSubmitted(true);
     showToast(`Thank you ${callbackName}! An academic counselor will call you within 15 minutes.`, 'success');
     setCallbackName('');
     setCallbackPhone('');
   };
 
+  const scrollStudents = (direction: 'left' | 'right') => {
+    if (studentsTrackRef.current) {
+      const offset = direction === 'left' ? -260 : 260;
+      studentsTrackRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={styles.page}>
-      {/* ── 1. HERO SECTION (Professor Academy Signature) ── */}
+      {/* ── 1. HERO SECTION ── */}
       <section className={styles.hero} aria-label="Hero Section">
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
@@ -370,19 +374,19 @@ export default function HomePage() {
             </div>
 
             <h1 className={styles.heroTitle}>
-              <span className={styles.highlightText}>TRB ACADEMY for PHYSICS</span> — TRB Physics Online &amp; Offline Classes
+              <span className={styles.highlightText}>TRB ACADEMY for PHYSICS</span>; TRB Physics Online &amp; Offline Classes
             </h1>
 
             <p className={styles.heroSubtitle}>
-              Tamil Nadu’s #1 dedicated coaching academy for <strong>PG TRB, UG TRB, POLYTECHNIC TRB, AP TRB, TN SET, ENGINEERING TRB, SCERT TRB, CSIR-NET, JEE &amp; NEET</strong>. Experience live smartboard classes, printed bilingual notes, national CBT test series &amp; 24/7 personalized faculty mentorship.
+              Tamil Nadu’s #1 dedicated coaching academy for <strong>PG TRB, UG TRB, POLYTECHNIC TRB, AP TRB, TN SET, ENGINEERING TRB, SCERT TRB</strong>. Experience live smartboard classes, printed bilingual notes, dedicative CBT test series &amp; 24/7 personalized faculty mentorship.
             </p>
 
             <div className={styles.heroActions}>
               <Link href="/courses" className={styles.heroEnrollBtn} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 Explore Batches &amp; Enroll <Rocket size={18} />
               </Link>
-              <Link href="/courses" className={styles.heroDemoBtn} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Book Free Demo Class <Video size={18} />
+              <Link href="/downloads" className={styles.heroDemoBtn} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                Free Demo Class, Sample Notes &amp; Exams <Video size={18} />
               </Link>
             </div>
 
@@ -397,20 +401,20 @@ export default function HomePage() {
                 <span className={styles.statLbl}>TRB Coaching Classes</span>
               </div>
               <div className={styles.statItem}>
-                <span className={styles.statNum}>15,000+</span>
+                <span className={styles.statNum}>3500+</span>
                 <span className={styles.statLbl}>Aspirants Guided</span>
               </div>
               <div className={styles.statItem}>
-                <span className={styles.statNum}>AIR 1, 4, 11</span>
-                <span className={styles.statLbl}>State &amp; National Top Ranks</span>
+                <span className={styles.statNum}>STATE TOP RANKERS 3, 4, 9</span>
+                <span className={styles.statLbl}>State Rank Records</span>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Quick Enquiry / Free Consultation Card */}
+          {/* Right Side: Quick Enquiry Desk Card */}
           <div className={styles.enquiryCard}>
             <div className={styles.enquiryHeader}>
-              <span className={styles.enquiryBadge}>FREE ACADEMIC COUNSELLING</span>
+              <span className={styles.enquiryBadge}>ENQUIRY DESK</span>
               <h2 className={styles.enquiryTitle}>Get Expert TRB Guidance</h2>
               <p className={styles.enquiryDesc}>
                 Speak with our expert Physics faculty to assess your syllabus readiness and choose the right TRB / competitive batch.
@@ -451,17 +455,15 @@ export default function HomePage() {
                 onChange={(e) => setCallbackExam(e.target.value)}
                 className={styles.enquirySelect}
               >
-                <option value="PG TRB">Target: PG TRB Physics</option>
-                <option value="Education & Psychology TRB">Target: Education &amp; Psychology TRB</option>
-                <option value="UG TRB">Target: UG TRB Physics</option>
-                <option value="POLY TRB">Target: POLY TRB (Polytechnic)</option>
-                <option value="TN SET">Target: TN SET Physical Sciences</option>
-                <option value="AP TRB">Target: AP TRB (Assistant Professor)</option>
-                <option value="TN SCERT TRB">Target: TN SCERT TRB</option>
-                <option value="Engg. TRB">Target: Engg. TRB Physics</option>
-                <option value="CSIR - NET">Target: CSIR - NET (Physical Science)</option>
-                <option value="JEE">Target: JEE (Main &amp; Advanced)</option>
-                <option value="NEET">Target: NEET (UG Physics)</option>
+                <option value="PG TRB">PG TRB Physics</option>
+                <option value="UG TRB">UG TRB Physics</option>
+                <option value="POLY TRB">POLY TRB (Lecturer)</option>
+                <option value="AP TRB">AP TRB (Assistant Professor)</option>
+                <option value="TN SET">TN SET Physical Sciences</option>
+                <option value="Education & Psychology TRB">Education &amp; Psychology TRB</option>
+                <option value="TN SCERT TRB">TN SCERT TRB</option>
+                <option value="Engg. TRB">Engg. TRB Physics</option>
+                <option value="CSIR - NET">CSIR - NET (Physical Science)</option>
               </select>
               <button type="submit" className={styles.enquirySubmit} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
                 Request Free Callback <ArrowRight size={16} />
@@ -484,25 +486,112 @@ export default function HomePage() {
           </span>
           <span>•</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <MapPin size={14} color="#DC2626" /> Campus: Mathalangula St, Periyar Statue Backside (Opp. Amma Medical), Tiruvannamalai - 606601
+            <MapPin size={14} color="#DC2626" /> Campus: Mathalangula St, Periyar Statue Backside (Opp. Sankar DTP), Tiruvannamalai - 606601
           </span>
         </div>
       </div>
 
-      {/* ── 3. FEATURED COURSES & CATEGORY TABS (Professor Academy Signature) ── */}
+      {/* ── 3. SUCCESS STUDENTS BIO: UG TRB-2024 (Scroll RIGHT to LEFT) ── */}
+      <section className={styles.resultsSection} id="results" aria-label="Success Students Bio">
+        <div className={styles.resultsHeader}>
+          <div>
+            <span className={styles.resultsBadge}>UG TRB-2024 TOPPERS</span>
+            <h2 className={styles.resultsTitle}>Our Success Students BIO</h2>
+            <p style={{ color: '#94A3B8', fontSize: '0.95rem', margin: '0.35rem 0 0' }}>
+              Consistently producing Tamil Nadu state rank records in Teachers Recruitment Board examinations.
+            </p>
+          </div>
+          <div className={styles.tickerControls}>
+            <button
+              onClick={() => scrollStudents('left')}
+              className={styles.tickerBtn}
+              aria-label="Scroll toppers left"
+              title="Previous Student"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => scrollStudents('right')}
+              className={styles.tickerBtn}
+              aria-label="Scroll toppers right"
+              title="Next Student"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.marqueeTrackWrapper} ref={studentsTrackRef}>
+          <div className={styles.marqueeTrackRightToLeft}>
+            {/* Render two sets for seamless infinite right-to-left marquee */}
+            {[...SUCCESS_STUDENTS, ...SUCCESS_STUDENTS].map((stu, idx) => (
+              <div key={`${stu.name}-${idx}`} className={styles.studentCard}>
+                <div className={styles.studentImgWrapper}>
+                  <img
+                    src={stu.image}
+                    alt={`${stu.name} UG TRB-2024 Topper`}
+                    className={styles.studentImg}
+                    loading="lazy"
+                  />
+                </div>
+                <span className={styles.studentExamBadge}>{stu.exam}</span>
+                <div className={styles.studentScore}>{stu.score}</div>
+                <div className={styles.studentScoreLabel}>Score Secured</div>
+                <div className={styles.studentName}>{stu.name}</div>
+                <div className={styles.studentReg}>{stu.regNo}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. YOUTUBE VIDEOS AND PHOTOS (Scroll LEFT to RIGHT with time gap) ── */}
+      <section className={styles.gallerySection} id="gallery" aria-label="YouTube Videos and Photos">
+        <div className={styles.galleryHeader}>
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: '#F87171', fontWeight: 700, fontSize: '0.85rem', marginBottom: '0.35rem' }}>
+              <Play size={14} fill="#EF4444" color="#EF4444" /> CAMPUS LIFE &amp; VIDEO SESSIONS
+            </div>
+            <h2 className={styles.galleryTitle}>YouTube Videos and Classroom Moments</h2>
+          </div>
+          <a
+            href="https://www.youtube.com/@TIDE_PHYSICS_TVM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ytChannelBtn}
+          >
+            <Video size={18} /> Watch on @TIDE_PHYSICS_TVM <ExternalLink size={14} />
+          </a>
+        </div>
+
+        <div className={styles.marqueeTrackWrapper}>
+          <div className={styles.marqueeTrackLeftToRight}>
+            {[...GALLERY_PHOTOS, ...GALLERY_PHOTOS].map((p, idx) => (
+              <div key={`${p.src}-${idx}`} className={styles.galleryCard}>
+                <img src={p.src} alt={p.title} loading="lazy" />
+                <div className={styles.galleryCardOverlay}>
+                  <span>{p.title}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. COURSES SECTION ── */}
       <section className={styles.section} id="courses">
         <div className={styles.sectionInner}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>POPULAR CURRICULA</span>
-            <h2 className={styles.sectionTitle}>Explore Premier Physics Batches</h2>
+            <span className={styles.sectionTag}>STATE RANKING BEST CLASSES &amp; DEDICATIVE CBT TEST SERIES</span>
+            <h2 className={styles.sectionTitle}>State Ranking BEST CLASSES &amp; DEDICATIVE CBT TEST SERIES</h2>
             <p className={styles.sectionSubtitle}>
-              Structured, comprehensive programs designed by top educators with proven national and state rank records.
+              State-level Computer-Based Test (CBT) - Dedicative multi-practice exams Topic-wise, Unit-wise, Chapter-wise, Combined Exams and Model exams test series. Our Exams Questions will be previous PYQ’s Recently TRB Exam Board conducted Question weightage will be handled, Android &amp; CBT-online, OMR-offline exam gives a real TRB Board exam conducting experience with time management options.
             </p>
           </div>
 
-          {/* Category Tabs */}
+          {/* Category Tabs (Removed School & Competitive) */}
           <div className={styles.tabsRow}>
-            {['All', 'TRB Exams', 'TN SET & CSIR-NET', 'School & Competitive'].map((cat) => (
+            {['All', 'TRB Exams', 'TN SET & CSIR-NET'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
@@ -510,7 +599,7 @@ export default function HomePage() {
               >
                 {cat === 'All' ? (
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Sparkles size={14} color="#F59E0B" /> All Programs (11)
+                    <Sparkles size={14} color="#F59E0B" /> All Flagship Programs ({courses.length})
                   </span>
                 ) : (
                   cat
@@ -519,7 +608,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Course Cards Grid */}
+          {/* Course Cards Grid: Just course names and key features with enroll, no fees/discount/student count */}
           <div className={styles.coursesGrid}>
             {filteredCourses.map((c) => (
               <CourseCard
@@ -528,92 +617,100 @@ export default function HomePage() {
                 title={c.title}
                 description={c.description}
                 category={c.category}
-                price={c.price}
-                originalPrice={c.originalPrice}
                 level={c.level}
                 isLive={c.isLive}
                 features={c.features}
+                showPricing={false}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 4. WHY CHOOSE US (Illustrated Grid) ── */}
+      {/* ── 6. WHY CHOOSE US (Why 3500+ Aspirants Trust Us) ── */}
       <section className={`${styles.section} ${styles.whySection}`}>
         <div className={styles.sectionInner}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionTag}>THE TIDE PHYSICS ADVANTAGE</span>
-            <h2 className={styles.sectionTitle}>Why 15,000+ Aspirants Trust Us</h2>
+            <h2 className={styles.sectionTitle}>Why 3500+ Aspirants Trust Us</h2>
             <p className={styles.sectionSubtitle}>
-              We combine pedagogical clarity with examination rigor to make competitive physics effortless.
+              &ldquo;We provide dedicated classes, intensive training, and real-life situational motivation to build students&apos; knowledge, confidence, and success in competitive examinations.&rdquo;
             </p>
           </div>
 
-          <div className={styles.whyGrid}>
-            {WHY_CHOOSE_ITEMS.map((item, idx) => (
-              <div key={idx} className={styles.whyCard}>
-                <div className={styles.whyIcon}>{item.icon}</div>
-                <h3 className={styles.whyTitle}>{item.title}</h3>
-                <p className={styles.whyDesc}>{item.desc}</p>
+          {/* 3 Prominent Highlights: Expert Faculty, Printed Notes, State Ranking CBT */}
+          <div className={styles.featureHighlightGrid}>
+            {FEATURE_HIGHLIGHTS.map((item, idx) => (
+              <div key={idx} className={styles.featureHighlightCard}>
+                <div style={{ display: 'inline-block', width: 'fit-content', background: '#EFF6FF', color: '#0056D2', fontSize: '0.75rem', fontWeight: 800, padding: '3px 10px', borderRadius: '4px' }}>
+                  {item.badge}
+                </div>
+                <h3 className={styles.featureHighlightTitle}>{item.title}</h3>
+                <p style={{ fontSize: '0.88rem', color: '#64748B', lineHeight: 1.5, margin: 0 }}>
+                  {item.intro}
+                </p>
+                <ul className={styles.featureBulletList}>
+                  {item.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className={styles.featureBulletItem}>
+                      <span style={{ color: '#16A34A', fontWeight: 800 }}>•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 5. HALL OF FAME / RANKERS WALL ── */}
-      <section className={styles.section}>
+      {/* ── 7. REASON!!.. WHY WE CHOOSE TIDE PHYSICS? (Key Examinations Covered) ── */}
+      <section className={styles.reasonSection} id="reason" aria-label="Why We Choose Tide Physics">
         <div className={styles.sectionInner}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>PROVEN ACHIEVEMENTS</span>
-            <h2 className={styles.sectionTitle}>Hall of Fame: Our National Rankers</h2>
+            <span className={styles.sectionTag}>CURRICULUM SPECIFICATIONS</span>
+            <h2 className={styles.sectionTitle}>REASON!!.. WHY WE CHOOSE TIDE PHYSICS?</h2>
             <p className={styles.sectionSubtitle}>
-              Read how Tide Physics Academy helped students script their success stories across India.
+              Key Examinations Covered with specialized syllabus architecture for Teaching Positions in Tamil Nadu.
             </p>
           </div>
 
-          <div className={styles.rankersGrid}>
-            {RANKERS.map((r, idx) => (
-              <div key={idx} className={styles.rankerCard}>
-                <div className={styles.rankerTop}>
-                  <div className={styles.rankerAvatar}>
-                    {r.name.split(' ').map((n) => n[0]).join('')}
-                  </div>
-                  <div className={styles.rankerInfo}>
-                    <div className={styles.rankerName}>{r.name}</div>
-                    <div className={styles.rankerProgram}>{r.college}</div>
-                    <div className={styles.rankBadge}>{r.rank}</div>
-                  </div>
+          <div className={styles.reasonGrid}>
+            {KEY_EXAMINATIONS.map((exam, idx) => (
+              <div key={idx} className={styles.reasonCard}>
+                <h3 className={styles.reasonCardTitle}>{exam.title}</h3>
+                <div className={styles.reasonPostBox}>
+                  <strong>Target Posts:</strong> {exam.target}
                 </div>
-                <p className={styles.quoteText}>&ldquo;{r.quote}&rdquo;</p>
+                <div className={styles.reasonSyllabusBox}>
+                  <strong>Syllabus Level:</strong> {exam.syllabus}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 6. FREE STUDY KIT DOWNLOAD BANNER ── */}
-      <section className={styles.section} style={{ paddingTop: 0 }}>
+      {/* ── 8. FREE STUDY KIT DOWNLOAD BANNER ── */}
+      <section className={styles.section} id="downloads" style={{ paddingTop: 0 }}>
         <div className={styles.sectionInner}>
           <div className={styles.downloadBanner}>
             <div className={styles.downloadContent}>
               <h2 className={styles.downloadTitle}>
-                Download Free Physics Formula Handbook & 15-Year Solved Papers
+                Free Demo Class, Sample Notes &amp; Exams
               </h2>
               <p className={styles.downloadDesc}>
                 Get immediate access to high-yield formula sheets, chapter-wise weightage analysis,
-                and previous year question solutions curated by our senior faculty.
+                previous year question solutions, and sample model CBT exams curated by our senior faculty.
               </p>
             </div>
-            <Link href="/courses" className={styles.downloadBtn} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              Download Free Study Kit <Download size={18} />
+            <Link href="/downloads" className={styles.downloadBtn} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              Access Free Study Materials &amp; Demo <Download size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── 7. CAMPUS LOCATION & DIRECT HELPLINE ── */}
+      {/* ── 9. CAMPUS LOCATION & DIRECT HELPLINE ── */}
       <section className={`${styles.section} ${styles.campusSection}`} id="campus">
         <div className={styles.sectionInner}>
           <div className={styles.sectionHeader}>
@@ -645,7 +742,12 @@ export default function HomePage() {
                   Tiruvannamalai - 606601, Tamil Nadu.
                 </div>
                 <div className={styles.campusLandmark}>
-                  📍 Landmark: Opposite Amma Medical
+                  📍 Landmark: Opposite Sankar DTP (Opp. Sankar DTP, formerly Opposite Amma Medical)
+                </div>
+                <div style={{ marginTop: '0.5rem', fontSize: '0.82rem', color: '#475569' }}>
+                  <strong>Institute Opening Time:</strong><br />
+                  Mon – Fri: 10.00 AM – 5 PM (IST)<br />
+                  Sat – Sun: 9 AM – 5 PM (IST)
                 </div>
               </div>
 
@@ -669,10 +771,11 @@ export default function HomePage() {
 
             <div className={styles.campusMapWrapper}>
               <iframe
-                title="Tide Physics Academy Location Map"
-                src="https://maps.google.com/maps?q=12.2355155,79.0747604&z=16&output=embed"
+                title="Tide Physics Academy Location Map (Opp. Sankar DTP)"
+                src="https://maps.google.com/maps?q=12.2355155,79.0747604&hl=en&z=16&output=embed"
                 className={styles.campusMapIframe}
                 loading="lazy"
+                allowFullScreen
               />
               <a
                 href="https://maps.app.goo.gl/R5j7rKeV4ozKHRCSA?g_st=ac"
@@ -680,14 +783,14 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className={styles.campusMapBtn}
               >
-                <Navigation size={16} /> Open in Google Maps <ExternalLink size={15} />
+                <Navigation size={16} /> Open in Google Maps (Opp. Sankar DTP) <ExternalLink size={15} />
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 8. FAQ ACCORDION ── */}
+      {/* ── 10. FAQ ACCORDION ── */}
       <section className={`${styles.section} ${styles.whySection}`}>
         <div className={styles.sectionInner}>
           <div className={styles.sectionHeader}>

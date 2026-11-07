@@ -23,6 +23,7 @@ export interface CourseCardProps {
   instructor?: { name?: string } | string;
   href?: string;
   isEnrolled?: boolean;
+  showPricing?: boolean;
   onEnroll?: () => void;
 }
 
@@ -46,10 +47,14 @@ export default function CourseCard({
   isEnrolled = false,
   enrolledCount,
   enrolledStudents,
+  showPricing = false,
   onEnroll,
 }: CourseCardProps) {
   const courseId = id || _id || 'course';
   const discountPercent = originalPrice > price ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
+
+  // Clean features to ensure "Similar TRB CBT"
+  const sanitizedFeatures = features.map(f => f.replace(/All-India/gi, 'Similar TRB CBT'));
 
   return (
     <div className={styles.card}>
@@ -66,9 +71,9 @@ export default function CourseCard({
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.desc}>{description}</p>
 
-        {/* Feature Checklists (Professor Academy style) */}
+        {/* Feature Checklists */}
         <ul className={styles.featuresList}>
-          {features.slice(0, 4).map((feat, idx) => (
+          {sanitizedFeatures.slice(0, 4).map((feat, idx) => (
             <li key={idx} className={styles.featureItem}>
               <span className={styles.featureCheck}>
                 <Check size={12} strokeWidth={3} />
@@ -78,38 +83,40 @@ export default function CourseCard({
           ))}
         </ul>
 
-        {/* Price & Discount & Enrolled count */}
-        <div className={styles.pricingRow}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.65rem' }}>
-            <span className={styles.price}>₹{price.toLocaleString('en-IN')}</span>
-            {originalPrice > price && (
-              <>
-                <span className={styles.strikePrice}>₹{originalPrice.toLocaleString('en-IN')}</span>
-                <span className={styles.discountBadge}>{discountPercent}% OFF</span>
-              </>
-            )}
+        {/* Pricing & Enrolled count only if explicitly enabled */}
+        {showPricing && (
+          <div className={styles.pricingRow}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.65rem' }}>
+              <span className={styles.price}>₹{price.toLocaleString('en-IN')}</span>
+              {originalPrice > price && (
+                <>
+                  <span className={styles.strikePrice}>₹{originalPrice.toLocaleString('en-IN')}</span>
+                  <span className={styles.discountBadge}>{discountPercent}% OFF</span>
+                </>
+              )}
+            </div>
+            <span style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <Users size={14} color="#64748B" /> {enrolledCount || enrolledStudents || 350}+ Enrolled Students
+            </span>
           </div>
-          <span style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-            <Users size={14} color="#64748B" /> {enrolledCount || enrolledStudents || 350}+ Enrolled Students
-          </span>
-        </div>
+        )}
 
         {/* Action Buttons */}
-        <div className={styles.actions}>
+        <div className={styles.actions} style={{ marginTop: showPricing ? undefined : '1rem' }}>
           {isEnrolled ? (
             <Link href={`/student/courses/${courseId}`} className={styles.enrollBtn} style={{ background: '#16A34A' }}>
-              <BookOpen size={15} style={{ marginRight: 6 }} /> Go to Course
+              Access Course <Rocket size={16} />
             </Link>
-          ) : onEnroll ? (
-            <button type="button" onClick={onEnroll} className={styles.enrollBtn}>
-              Enroll Now <Rocket size={15} style={{ marginLeft: 6 }} />
-            </button>
           ) : (
-            <Link href={href || `/courses?enroll=${courseId}`} className={styles.enrollBtn}>
-              Enroll Now <Rocket size={15} style={{ marginLeft: 6 }} />
+            <Link
+              href={href || `/courses/${courseId}`}
+              className={styles.enrollBtn}
+              onClick={onEnroll}
+            >
+              Enroll Now <Rocket size={16} />
             </Link>
           )}
-          <Link href={`/courses/${courseId}`} className={styles.detailsBtn}>
+          <Link href={href || `/courses/${courseId}`} className={styles.syllabusBtn}>
             View Curriculum
           </Link>
         </div>

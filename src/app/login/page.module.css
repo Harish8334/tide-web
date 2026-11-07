@@ -207,6 +207,64 @@
   font-size: 0.88rem;
 }
 
+.mottoCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mottoBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #FFB800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mottoHeadline {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.mottoSub {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #CBD5E1;
+  letter-spacing: 0.03em;
+}
+
+.mottoList {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mottoList li {
+  font-size: 0.78rem;
+  color: #E2E8F0;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.mottoList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #FFB800;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
 /* Right Form Panel */
 .rightPanel {
   display: flex;

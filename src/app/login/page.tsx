@@ -96,8 +96,8 @@ function LoginForm() {
               <span className={styles.logoText}>Tide Physics Academy</span>
             </Link>
           <div className={styles.leftHero}>
-            <h1 className={styles.leftTitle}>India&apos;s Premier<br /><span className="gradient-text">Physics Coaching</span></h1>
-            <p className={styles.leftDesc}>Join 2,000+ students mastering Physics for M.Sc, CSIR-NET, GATE, and B.Ed with India&apos;s most advanced online platform.</p>
+            <h1 className={styles.leftTitle}>Tamil Nadu’s Premier<br /><span className="gradient-text">Physics Coaching</span></h1>
+            <p className={styles.leftDesc}>500+ Students Mastering for PG TRB &amp; UG TRB with Bed., SET., AP TRB (Assistant Professor) with Tamil Nadu’s most advanced online platform.</p>
             <div className={styles.leftBullets}>
               {['Live interactive classes daily', 'AI-powered exam analytics', 'Expert faculty mentorship', 'Complete Physics coverage'].map((b) => (
                 <div key={b} className={styles.bullet}>
@@ -108,8 +108,20 @@ function LoginForm() {
             </div>
           </div>
           <div className={styles.leftQuote}>
-            <p>&ldquo;Physics is not a religion. If it were, we&apos;d have a much easier time raising money.&rdquo;</p>
-            <span>— Leon Lederman</span>
+            <p>&ldquo;Remember to look up at the stars and not down at your feet.&rdquo;</p>
+            <span>— Stephen Hawking</span>
+          </div>
+          <div className={styles.mottoCard}>
+            <div className={styles.mottoBadge}>TIDE PHYSICS ACADEMY — MOTTO</div>
+            <div className={styles.mottoHeadline}>&ldquo;MASTER THE CONCEPTS, CONQUER THE EXAM.&rdquo;</div>
+            <div className={styles.mottoSub}>THINK LIKE A PHYSICIST • ACHIEVE LIKE A CHAMPION</div>
+            <ul className={styles.mottoList}>
+              <li>&ldquo;Think like Einstein. Work like Newton. Win like a champion.&rdquo;</li>
+              <li>&ldquo;Dream beyond limits. Discover beyond boundaries.&rdquo;</li>
+              <li>&ldquo;Every problem is an opportunity to prove your potential.&rdquo;</li>
+              <li>&ldquo;Master the concepts. Conquer the examination.&rdquo;</li>
+              <li>&ldquo;Your dedication today determines your success tomorrow.&rdquo;</li>
+            </ul>
           </div>
         </div>
       </div>

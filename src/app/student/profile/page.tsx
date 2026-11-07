@@ -323,7 +323,7 @@ export default function StudentProfilePage() {
                 Tiruvannamalai - 606601.
               </div>
               <div className={styles.landmarkTag}>
-                📍 Landmark: Opposite Amma Medical
+                📍 Landmark: Opposite Sankar DTP (Opp. Sankar DTP, formerly Opposite Amma Medical)
               </div>
             </div>
 

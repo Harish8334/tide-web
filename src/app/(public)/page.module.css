@@ -121,22 +121,27 @@
 /* Stats Ribbon */
 .statsRibbon {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 1.25rem;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  word-break: break-word;
 }
 
 .statItem {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .statNum {
-  font-size: 1.65rem;
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
   font-weight: 800;
   color: #FFB800;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 .statLbl {
@@ -877,4 +882,393 @@
   .campusMapWrapper {
     height: 300px;
   }
+}
+
+/* ============================================================
+   UG TRB-2024 SUCCESS STUDENTS BIO (Scroll RIGHT to LEFT)
+   ============================================================ */
+.resultsSection {
+  background: #0B0F19;
+  padding: 3.5rem 1.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid #1E293B;
+}
+
+.resultsHeader {
+  max-width: 1320px;
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resultsBadge {
+  background: linear-gradient(135deg, #FF7A00 0%, #E11D48 100%);
+  color: #FFFFFF;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.resultsTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.tickerControls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tickerBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tickerBtn:hover {
+  background: #FFB800;
+  color: #0F172A;
+}
+
+.marqueeTrackWrapper {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.5rem 0;
+  scroll-behavior: smooth;
+}
+
+.marqueeTrackWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.marqueeTrackRightToLeft {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollRTL 45s linear infinite;
+}
+
+.marqueeTrackRightToLeft:hover,
+.marqueeTrackWrapper:hover .marqueeTrackRightToLeft {
+  animation-play-state: paused;
+}
+
+@keyframes scrollRTL {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.studentCard {
+  background: #131D31;
+  border: 1px solid #1E293B;
+  border-radius: 16px;
+  padding: 1.25rem;
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.studentCard:hover {
+  transform: translateY(-4px);
+  border-color: #FFB800;
+}
+
+.studentImgWrapper {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #FFB800;
+  margin-bottom: 0.85rem;
+  background: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studentImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.studentExamBadge {
+  background: #1E293B;
+  color: #38BDF8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 0.35rem;
+}
+
+.studentScore {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #FFB800;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.studentScoreLabel {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.studentName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.studentReg {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   YOUTUBE & PHOTOS GALLERY (Scroll LEFT to RIGHT with time gap)
+   ============================================================ */
+.gallerySection {
+  background: #0F172A;
+  padding: 3.5rem 1.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid #1E293B;
+}
+
+.galleryHeader {
+  max-width: 1320px;
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.galleryTitle {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.ytChannelBtn {
+  background: #DC2626;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.ytChannelBtn:hover {
+  opacity: 0.9;
+}
+
+.marqueeTrackLeftToRight {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollLTR 50s linear infinite;
+}
+
+.marqueeTrackLeftToRight:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLTR {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrackRightToLeft,
+  .marqueeTrackLeftToRight {
+    animation: none !important;
+  }
+  .marqueeTrackWrapper {
+    overflow-x: auto;
+  }
+}
+
+.galleryCard {
+  width: 320px;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid #334155;
+}
+
+.galleryCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.galleryCard:hover img {
+  transform: scale(1.05);
+}
+
+.galleryCardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  padding: 1rem 0.75rem 0.5rem;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   REASON!!.. WHY WE CHOOSE TIDE PHYSICS? (Key Examinations Covered)
+   ============================================================ */
+.reasonSection {
+  background: #F8FAFC;
+  padding: 5rem 1.5rem;
+}
+
+.reasonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1320px;
+  margin: 2.5rem auto 0;
+}
+
+.reasonCard {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reasonCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: #0056D2;
+}
+
+.reasonCardTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1E1B4B;
+  line-height: 1.3;
+}
+
+.reasonPostBox {
+  background: #EFF6FF;
+  border-left: 3px solid #0056D2;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+  color: #1E3A8A;
+  line-height: 1.45;
+}
+
+.reasonSyllabusBox {
+  background: #F1F5F9;
+  border-left: 3px solid #64748B;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* 3 Highlight Features */
+.featureHighlightGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+  max-width: 1320px;
+  margin: 2.5rem auto 0;
+}
+
+.featureHighlightCard {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.featureHighlightTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1E1B4B;
+}
+
+.featureBulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featureBulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.45;
 }

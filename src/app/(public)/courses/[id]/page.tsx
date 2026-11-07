@@ -761,7 +761,7 @@ export default async function PublicCourseDetailPage({
                     Senior Faculty — Tide Physics Academy Council
                   </p>
                   <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
-                    Over 14+ years of dedicated mentoring for CSIR-NET JRF, GATE Physical Sciences, and M.Sc Physics entrances. Has guided 50+ Top 10 All-India Rankers across prestigious Indian institutions.
+                    Over 14+ years of dedicated mentoring for CSIR-NET JRF, GATE Physical Sciences, and M.Sc Physics entrances. Has guided 50+ Top 10 State &amp; Similar TRB CBT Rankers across prestigious Indian institutions.
                   </p>
                 </div>
               </div>

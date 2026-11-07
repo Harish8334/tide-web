@@ -44,11 +44,10 @@ export default function PrivacyPage() {
             <section id="collection" className={styles.section}>
               <h2>1. Information We Collect</h2>
               <p>
-                PhysicsCoach Pro (&quot;we&quot;, &quot;our&quot;, or &quot;the Platform&quot;) collects information necessary to deliver educational instruction, conduct live video webinars, evaluate examinations, and manage academic enrollment.
+                TIDE PHYSICS ACADEMY (&quot;we&quot;, &quot;our&quot;, or &quot;the Platform&quot;) collects information necessary to deliver educational instruction, conduct live video webinars, evaluate examinations, and manage academic enrollment.
               </p>
               <ul>
                 <li><strong>Account Credentials:</strong> Full name, verified email address, contact telephone number, and encrypted password hash.</li>
-                <li><strong>Academic Profile:</strong> Enrolled institution, degree program (M.Sc, B.Ed, etc.), target examination (CSIR-NET, GATE), and geographic district.</li>
                 <li><strong>Examination &amp; Learning Records:</strong> Test answers, MCQ scores, OMR upload scans, lecture viewing progress, and attendance metrics.</li>
                 <li><strong>Technical Telemetry:</strong> IP address, device browser type, operating system, and session timestamps.</li>
               </ul>
@@ -75,7 +74,7 @@ export default function PrivacyPage() {
             <section id="cookies" className={styles.section}>
               <h2>4. Cookies &amp; Tracking Technologies</h2>
               <p>
-                PhysicsCoach Pro utilizes essential HTTP cookies and local storage items solely to sustain your authenticated login session and remember your course player preferences. We do not use third-party behavioral advertising trackers.
+                TIDE PHYSICS ACADEMY utilizes essential HTTP cookies and local storage items solely to sustain your authenticated login session and remember your course player preferences. We do not use third-party behavioral advertising trackers.
               </p>
             </section>
 
@@ -99,9 +98,9 @@ export default function PrivacyPage() {
                 If you have questions regarding this Privacy Policy or wish to report an data issue, contact our designated Data Protection Officer:
               </p>
               <div className={styles.contactCard}>
-                <strong>Data Protection Office — PhysicsCoach Pro</strong>
-                <span>Email: privacy@physicscoachpro.com</span>
-                <span>Address: Education Hub, Connaught Place, New Delhi, India 110001</span>
+                <strong>Data Protection Office — TIDE PHYSICS ACADEMY</strong>
+                <span>Email: admissions@tidephysics.com</span>
+                <span>Address: Mathalangula Street, Periyar Statue Backside (Opp. Sankar DTP), Tiruvannamalai - 606601, Tamil Nadu</span>
               </div>
             </section>
           </article>

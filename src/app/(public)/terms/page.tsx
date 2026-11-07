@@ -45,7 +45,7 @@ export default function TermsPage() {
             <section id="acceptance" className={styles.section}>
               <h2>1. Acceptance of Terms</h2>
               <p>
-                By creating an account, browsing courses, or accessing live lectures on PhysicsCoach Pro, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree to all provisions, do not proceed with portal registration.
+                By creating an account, browsing courses, or accessing live lectures on TIDE PHYSICS ACADEMY, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree to all provisions, do not proceed with portal registration.
               </p>
             </section>
 
@@ -73,7 +73,7 @@ export default function TermsPage() {
             <section id="ip" className={styles.section}>
               <h2>5. Intellectual Property Rights</h2>
               <p>
-                All lecture slides, digital whiteboards, proprietary problem sets, formulas handbooks, and simulated laboratory software are the exclusive intellectual property of PhysicsCoach Pro. Screen recording, downloading proprietary stream media, or redistributing course content will trigger legal prosecution under Indian copyright law.
+                All lecture slides, digital whiteboards, proprietary problem sets, formulas handbooks, and simulated laboratory software are the exclusive intellectual property of TIDE PHYSICS ACADEMY. Screen recording, downloading proprietary stream media, or redistributing course content will trigger legal prosecution under Indian copyright law.
               </p>
             </section>
 
@@ -90,14 +90,14 @@ export default function TermsPage() {
             <section id="termination" className={styles.section}>
               <h2>7. Account Termination</h2>
               <p>
-                PhysicsCoach Pro reserves the right to suspend or terminate accounts that breach these terms without refund. Students may request voluntary account closure at any time through the profile management panel.
+                TIDE PHYSICS ACADEMY reserves the right to suspend or terminate accounts that breach these terms without refund. Students may request voluntary account closure at any time through the profile management panel.
               </p>
             </section>
 
             <section id="governing-law" className={styles.section}>
               <h2>8. Governing Law &amp; Jurisdiction</h2>
               <p>
-                These terms are governed by and construed in accordance with the laws of India. Any legal disputes arising out of portal usage shall be subject to the exclusive jurisdiction of the competent courts in New Delhi, India.
+                These terms are governed by and construed in accordance with the laws of India. Any legal disputes arising out of portal usage shall be subject to the exclusive jurisdiction of the competent courts in Tiruvannamalai, Tamil Nadu, India.
               </p>
             </section>
           </article>

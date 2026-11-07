@@ -6,7 +6,7 @@ test.describe('Course Catalogue & Discovery', () => {
     await page.goto('/courses');
     await expect(page.locator('input[placeholder*="Search by title"]')).toBeVisible();
     await expect(page.getByText('PG TRB Physics')).toBeVisible();
-    await expect(page.getByText('Education & Psychology TRB')).toBeVisible();
+    await expect(page.getByText('Education & Psychology TRB').first()).toBeVisible();
   });
 
   test('should filter courses by search query', async ({ page }) => {

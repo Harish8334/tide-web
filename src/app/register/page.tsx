@@ -189,14 +189,14 @@ function RegisterForm() {
             <Atom size={26} color="#0056D2" /> Tide Physics<span className={styles.logoAccent}> Academy</span>
           </Link>
         <div className={styles.heroText}>
-          <h2>Join India&apos;s Premier Physics Coaching Portal</h2>
+          <h2>Join Tamil Nadu’s Premier Physics Coaching Portal</h2>
           <p>
             Experience interactive live classes, comprehensive test series, virtual laboratory simulations, and personalized doubt clearance.
           </p>
           <div className={styles.benefitList}>
             <div className={styles.benefitItem} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} strokeWidth={2.5} color="#22C55E" /> Access to 50+ Specialized Physics Courses</div>
             <div className={styles.benefitItem} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} strokeWidth={2.5} color="#22C55E" /> Daily Live Sessions with Interactive Whiteboard</div>
-            <div className={styles.benefitItem} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} strokeWidth={2.5} color="#22C55E" /> Auto-Graded CSIR-NET &amp; GATE Mock Tests</div>
+            <div className={styles.benefitItem} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} strokeWidth={2.5} color="#22C55E" /> Similar TRB CBT &amp; OMR Mock Tests</div>
           </div>
         </div>
       </div>

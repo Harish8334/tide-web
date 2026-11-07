@@ -47,9 +47,9 @@ export default function LeaderboardPage() {
       {/* Header */}
       <div className={styles.header}>
         <div>
-          <h1 className={styles.title}>All-India Aspirant Leaderboard</h1>
+          <h1 className={styles.title}>Similar TRB CBT Aspirant Leaderboard</h1>
           <p className={styles.subtitle}>
-            Benchmark your test performance against top aspirants preparing for CSIR-NET &amp; GATE Physics.
+            Benchmark your test performance against top aspirants preparing for Similar TRB CBT &amp; Physics competitive exams.
           </p>
         </div>
 

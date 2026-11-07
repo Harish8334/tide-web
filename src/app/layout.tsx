@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Best TRB coaching centre in physics",
     "PG TRB, UG TRB, POLYTECHNIC TRB, AP TRB, SET, ENGINEERING TRB, SCERT TRB",
     "TRB Physics Online & Offline Classes",
-    "TRB ACADEMY for PHYSICS — PHYSICS (MSc., & BSc Level Training Centre)",
+    "TRB ACADEMY for PHYSICS — Teachers Recruitment Board (TRB) Training centre",
     "TRB Coaching classes",
     "PG TRB Physics",
     "UG TRB Physics",
@@ -54,10 +54,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Best TRB Coaching Centre in Physics | PHYSICS MSc. & BSc Level Training Centre | Tide Physics Academy",
+    title: "Best TRB Coaching Centre in Physics | Teachers Recruitment Board (TRB) Training centre | Tide Physics Academy",
     description: "Tamil Nadu's premier institute for PG TRB, UG TRB, POLYTECHNIC TRB, AP TRB, TN SET, ENGINEERING TRB, SCERT TRB, CSIR-NET, JEE & NEET Physics. Join Online & Offline Classes at Tiruvannamalai.",
     url: 'https://tidephysics.com',
-    siteName: 'Tide Physics Academy — PHYSICS (MSc., & BSc Level Training Centre)',
+    siteName: 'Tide Physics Academy — Teachers Recruitment Board (TRB) Training centre',
     locale: 'en_IN',
     type: 'website',
     images: [
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Tide Physics Academy | Best TRB Coaching Centre in Physics",
-    description: "PHYSICS (MSc., & BSc Level Training Centre): PG TRB, UG TRB, POLY. TRB, AP TRB, TN SET, SCERT, Engg. TRB Exams Coaching. Online & Offline Classes in Tiruvannamalai.",
+    description: "Teachers Recruitment Board (TRB) Training centre: PG TRB, UG TRB, POLY. TRB, AP TRB, TN SET, SCERT, Engg. TRB Exams Coaching. Online & Offline Classes in Tiruvannamalai.",
     images: ['https://tidephysics.com/logo.png'],
   },
 };
@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': ['EducationalOrganization', 'LocalBusiness'],
     name: 'Tide Physics Academy',
     alternateName: [
-      'PHYSICS (MSc., & BSc Level Training Centre)',
+      'Teachers Recruitment Board (TRB) Training centre',
       'Best TRB coaching centre in physics',
       'Tide Physics',
       'Tide Academy Physics',
@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Mathalangula Street, Periyar Statue Backside, Opposite Amma Medical',
+      streetAddress: 'Mathalangula Street, Periyar Statue Backside (Opp. Sankar DTP)',
       addressLocality: 'Tiruvannamalai',
       addressRegion: 'Tamil Nadu',
       postalCode: '606601',

@@ -61,7 +61,7 @@ const FALLBACK_COURSES: CourseItem[] = [
   },
   {
     _id: 'poly-trb',
-    title: 'POLY TRB Physics (Polytechnic College Lecturers)',
+    title: 'POLY TRB Physics (Lecturer)',
     description: 'Specialized coaching for Tamil Nadu Government Polytechnic College Lecturer recruitment. High-yield engineering physics concepts, numerical calculations, and CBT simulator.',
     category: 'TRB Exams',
     level: 'Advanced',
@@ -253,7 +253,7 @@ function CoursesContent() {
           <div className="section-tag">Explore Programs</div>
           <h1 className={styles.heroTitle}>Comprehensive Physics Course Catalog</h1>
           <p className={styles.heroSubtitle}>
-            From university semester examinations to India&apos;s toughest national entrances — curated by India&apos;s leading Physics faculty.
+            TIDE Physics Academy is a specialized coaching institute in Tamil Nadu (Tiruvannamalai) that prepares candidates for competitive recruitment exams conducted by the Teachers Recruitment Board (TRB) and other competitive bodies. They structure their curriculum around both Bachelor of Science (BSc) and Master of Science (MSc) level Physics syllabi to cater to different categories of teaching positions.
           </p>
         </div>
       </div>
@@ -341,7 +341,9 @@ function CoursesContent() {
                 level={c.level || 'Intermediate'}
                 instructor={c.instructor}
                 enrolledCount={c.enrolledCount}
-                href={`/courses`}
+                href={`/courses/${c._id}`}
+                showPricing={true}
+                price={c.price}
                 onEnroll={() => handleEnrollClick(c._id)}
               />
             ))}

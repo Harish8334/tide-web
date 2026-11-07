@@ -14,7 +14,7 @@ const VALUES = [
   },
   {
     icon: <Atom size={28} className={styles.valIcon} />,
-    title: 'Research & Exam-Oriented Approach',
+    title: 'Exam-Oriented Approach',
     desc: 'Our curriculum combines first-principles physics intuition with high-yield problem solving, question shortcuts, and 10-year previous papers analysis for TRB, SET & NET examinations.',
   },
   {
@@ -31,39 +31,48 @@ const VALUES = [
 
 const FACULTY = [
   {
-    name: 'Dr. Rajesh Sharma',
-    role: 'Head of Quantum Physics & Electrodynamics',
-    qual: 'Ph.D. IIT Delhi | Postdoc TIFR Mumbai',
-    exp: '14+ Years Teaching Experience',
-    specialty: 'Quantum Mechanics, Condensed Matter',
-    avatarLetter: 'RS',
+    name: 'THILEEPAN CHAKKARAVARTHY',
+    role: 'Former STATE JEE CENTRE Faculty Expert in Physics',
+    qual: 'MSc., Med., MPhil., SET.',
+    exp: '7+ Years Teaching Experience',
+    specialty: 'Quantum Mechanics & Classical Dynamics',
+    avatarLetter: 'TC',
     avatarColor: '#0056D2',
   },
   {
-    name: 'Prof. Ananya Sen',
-    role: 'Lead Faculty — Mathematical & Classical Physics',
-    qual: 'M.Sc Gold Medalist, JNU | CSIR-NET JRF AIR 3',
-    exp: '10+ Years Teaching Experience',
-    specialty: 'Classical Mechanics, Mathematical Physics',
-    avatarLetter: 'AS',
+    name: 'Dr V. RAJARATHINAM Rtd.',
+    role: 'Lead faculty- Condensed Matter & High energy Physics',
+    qual: 'MSc., Bed., SET., PhD., Department of Physics, Anna University',
+    exp: '13+ Year experience',
+    specialty: 'Condensed Matter, Atomic & Molecular Physics',
+    avatarLetter: 'VR',
     avatarColor: '#7C3AED',
   },
   {
-    name: 'Dr. Vikram Malhotra',
-    role: 'Dean of Research & Statistical Mechanics',
-    qual: 'Ph.D. IISc Bangalore',
-    exp: '12+ Years Academic Leadership',
-    specialty: 'Thermodynamics, Nuclear & Particle Physics',
-    avatarLetter: 'VM',
+    name: 'SUBATHRA',
+    role: 'Former NEET Trainer & Academician',
+    qual: 'MSc., Bed., SET.',
+    exp: '5+ Years experience',
+    specialty: 'Electromagnetic Theory & Electronics',
+    avatarLetter: 'SU',
     avatarColor: '#0EA5E9',
+  },
+  {
+    name: 'NITHYANANTHAM',
+    role: 'Research Assistant in Mathematical Physics',
+    qual: 'MSc., Bed., SET.',
+    exp: '7+ Years experience',
+    specialty: 'Mathematical Physics',
+    avatarLetter: 'NI',
+    avatarColor: '#10B981',
   },
 ];
 
 const MILESTONES = [
-  { year: '2020', title: 'Institute Inception', desc: 'Started with 45 dedicated students and a mission to democratize elite Physics coaching.' },
-  { year: '2022', title: 'Statewide Recognition', desc: 'Over 500 alumni cleared PG TRB, POLY TRB, TN-SET and CSIR-NET with state top ranks.' },
+  { year: '2020', title: 'Institute Inception', desc: 'Started with dedicated students and a mission to democratize elite TRB Physics coaching.' },
+  { year: '2022', title: 'Over 20+ alumni', desc: 'Over 20+ alumni cleared PG TRB, POLY TRB, TN-SET and CSIR-NET with state top ranks.' },
   { year: '2024', title: 'Digital & Classroom Innovation', desc: 'Launched full interactive live class suite, smart OMR scanning, and modern classroom offline center in Tiruvannamalai.' },
-  { year: '2026', title: '3,000+ Active Scholars', desc: 'Tamil Nadu’s #1 dedicated TRB Physics coaching community with high selection rates.' },
+  { year: '2026', title: '170+ Active Scholars', desc: 'Tamil Nadu’s #1 dedicated TRB Physics coaching community with 1000+ alumni and top selection rates.' },
 ];
 
 export default function AboutPage() {
@@ -78,7 +87,7 @@ export default function AboutPage() {
                 <Atom size={14} /> About Tide Physics Academy
               </div>
               <h1 className={styles.heroTitle}>
-                PHYSICS (MSc., &amp; BSc Level Training Centre)<br />
+                Teachers Recruitment Board (TRB) Training centre<br />
                 <span className="gradient-text">PG TRB, UG TRB, POLY. TRB, AP TRB, TN SET, SCERT, Engg. TRB Exams Coaching.</span>
               </h1>
               <p className={styles.heroLead}>
@@ -86,16 +95,20 @@ export default function AboutPage() {
               </p>
               <div className={styles.statsRow}>
                 <div className={styles.statBox}>
-                  <span className={styles.statNum}>6+</span>
+                  <span className={styles.statNum}>7+</span>
                   <span className={styles.statLabel}>Years of Excellence</span>
                 </div>
                 <div className={styles.statBox}>
-                  <span className={styles.statNum}>2,000+</span>
+                  <span className={styles.statNum}>1000+</span>
                   <span className={styles.statLabel}>Alumni Scholars</span>
                 </div>
                 <div className={styles.statBox}>
-                  <span className={styles.statNum}>95%</span>
-                  <span className={styles.statLabel}>Success Rate</span>
+                  <span className={styles.statNum}>52.7%</span>
+                  <span className={styles.statLabel}>Highest Successive Rate</span>
+                </div>
+                <div className={styles.statBox}>
+                  <span className={styles.statNum}>28.97%</span>
+                  <span className={styles.statLabel}>Average Successive Rate</span>
                 </div>
               </div>
             </div>

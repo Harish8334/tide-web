@@ -20,10 +20,12 @@ import {
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/courses', label: 'All Courses' },
-  { href: '/about', label: 'About Academy' },
-  { href: '/contact', label: 'Contact Us' },
+  { href: '/', label: 'HOME' },
+  { href: '/courses', label: 'ALL COURSES' },
+  { href: '/results', label: 'OUR RESULTS' },
+  { href: '/downloads', label: 'DOWNLOADS' },
+  { href: '/contact', label: 'CONTACT US' },
+  { href: '/privacy', label: 'POLICY' },
 ];
 
 export default function Navbar() {
@@ -105,7 +107,7 @@ export default function Navbar() {
               <div className={styles.logoTitle}>
                 Tide <span>Physics</span> Academy
               </div>
-              <div className={styles.logoSub}>PHYSICS (MSc., &amp; BSc Level Training Centre)</div>
+              <div className={styles.logoSub}>Teachers Recruitment Board (TRB) Training centre</div>
             </div>
           </Link>
 
@@ -285,7 +287,7 @@ export default function Navbar() {
               <a href="tel:9994850604" className={styles.drawerPhoneLink} style={{ marginTop: '0.35rem' }}>
                 <Phone size={14} style={{ marginRight: 6 }} /> Call 9994850604
               </a>
-              <div className={styles.helplineSub}>Daily 8:30 AM – 7:30 PM (IST)</div>
+              <div className={styles.helplineSub}>Mon – Fri: 10.00 AM – 5 PM | Sat – Sun: 9 AM – 5 PM (IST)</div>
             </div>
           </div>
         </div>

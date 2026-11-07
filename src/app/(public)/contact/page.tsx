@@ -109,7 +109,7 @@ export default function ContactPage() {
                       Tiruvannamalai - 606601, Tamil Nadu.
                     </span>
                     <span style={{ display: 'inline-block', marginTop: '0.35rem', fontSize: '0.85rem', fontWeight: 700, color: '#B45309', background: '#FEF3C7', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
-                      📍 Landmark: Opposite Amma Medical
+                      📍 Landmark: Opposite Sankar DTP (Opp. Sankar DTP, formerly Opposite Amma Medical)
                     </span>
                   </div>
                 </div>
@@ -119,9 +119,10 @@ export default function ContactPage() {
                     <Clock size={20} />
                   </div>
                   <div>
-                    <div className={styles.itemLabel}>Operating Hours</div>
-                    <span className={styles.itemText}>
-                      Mon – Sat: 8:30 AM – 7:30 PM IST (Sundays by appointment)
+                    <div className={styles.itemLabel}>Institute Opening Time</div>
+                    <span className={styles.itemText} style={{ display: 'block', lineHeight: 1.5 }}>
+                      Mon – Fri: 10.00 AM – 5 PM (IST)<br />
+                      Sat – Sun: 9 AM – 5 PM (IST)
                     </span>
                   </div>
                 </div>
@@ -130,10 +131,11 @@ export default function ContactPage() {
               {/* Map embed */}
               <div className={styles.mapContainer}>
                 <iframe
-                  title="Tide Physics Academy Location Map"
-                  src="https://maps.google.com/maps?q=12.2355155,79.0747604&z=16&output=embed"
+                  title="Tide Physics Academy Location Map (Opp. Sankar DTP)"
+                  src="https://maps.google.com/maps?q=12.2355155,79.0747604&hl=en&z=16&output=embed"
                   className={styles.mapIframe}
                   loading="lazy"
+                  allowFullScreen
                 />
               </div>
 
@@ -145,7 +147,7 @@ export default function ContactPage() {
                   className="btn btn-primary btn-full"
                   style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
                 >
-                  <MapPin size={16} /> Open in Google Maps
+                  <MapPin size={16} /> Open in Google Maps (Opp. Sankar DTP)
                 </a>
               </div>
             </div>

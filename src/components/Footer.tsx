@@ -33,7 +33,7 @@ export default function Footer() {
               Targeting Top Ranks in TRB Physics &amp; Competitive Exams?
             </h3>
             <p className={styles.preFooterSubtitle}>
-              Join over 15,000 aspirants learning from Tamil Nadu&apos;s leading TRB Academy for Physics.
+              Join over 270+ aspirants learning from Tamil Nadu&apos;s leading TRB Academy for Physics.
             </p>
           </div>
           <div className={styles.preFooterActions}>
@@ -57,7 +57,7 @@ export default function Footer() {
                 <div className={styles.logoTitle}>
                   Tide <span>Physics</span> Academy
                 </div>
-                <div className={styles.logoSub}>PHYSICS (MSc., &amp; BSc Level Training Centre)</div>
+                <div className={styles.logoSub}>Teachers Recruitment Board (TRB) Training centre</div>
               </div>
             </Link>
             <p className={styles.brandDesc}>
@@ -66,11 +66,11 @@ export default function Footer() {
             <div className={styles.trustBadges}>
               <span className={styles.trustBadge}>
                 <Star size={13} fill="#FFB800" color="#FFB800" style={{ marginRight: 4, display: 'inline' }} />
-                4.9/5 Rating (12k+ Reviews)
+                4.9/5 Rating (7K+ Reviews)
               </span>
               <span className={styles.trustBadge}>
                 <Trophy size={13} color="#FFB800" style={{ marginRight: 4, display: 'inline' }} />
-                15,000+ Selections
+                100+ Selections
               </span>
               <span className={styles.trustBadge}>
                 <GraduationCap size={13} color="#CBD5E1" style={{ marginRight: 4, display: 'inline' }} />
@@ -83,13 +83,13 @@ export default function Footer() {
           <div>
             <h4 className={styles.colTitle}>Flagship Programs</h4>
             <div className={styles.linkList}>
-              <Link href="/courses" className={styles.linkItem}>PG TRB Physics</Link>
-              <Link href="/courses" className={styles.linkItem}>Education &amp; Psychology TRB</Link>
+              <Link href="/courses" className={styles.linkItem}>PG TRB Coaching Batch</Link>
               <Link href="/courses" className={styles.linkItem}>UG TRB &amp; POLY TRB</Link>
               <Link href="/courses" className={styles.linkItem}>TN SET Physical Sciences</Link>
               <Link href="/courses" className={styles.linkItem}>AP TRB (Assistant Professor)</Link>
               <Link href="/courses" className={styles.linkItem}>Engg. TRB &amp; TN SCERT TRB</Link>
-              <Link href="/courses" className={styles.linkItem}>CSIR - NET, JEE &amp; NEET</Link>
+              <Link href="/courses" className={styles.linkItem}>CSIR - NET Physical Science</Link>
+              <Link href="/courses" className={styles.linkItem}>Education &amp; Psychology TRB</Link>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ export default function Footer() {
               <Link href="/register" className={styles.linkItem}>New Aspirant Registration</Link>
               <Link href="/student/profile" className={styles.linkItem}>Student Helpdesk &amp; Profile</Link>
               <Link href="/student/live-classes" className={styles.linkItem}>Live Classroom Schedule</Link>
-              <Link href="/student/exams" className={styles.linkItem}>All-India CBT Test Series</Link>
+              <Link href="/student/exams" className={styles.linkItem}>Similar TRB CBT Test Series</Link>
               <Link href="/student/formulas" className={styles.linkItem}>Formula Pocket Handbook</Link>
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function Footer() {
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <MapPin size={16} className={styles.contactIcon} />
-                <span>Mathalangula Street, Periyar Statue Backside (Opp. Amma Medical), Tiruvannamalai - 606601</span>
+                <span>Mathalangula Street, Periyar Statue Backside (Opp. Sankar DTP), Tiruvannamalai - 606601</span>
               </div>
               <div className={styles.contactItem}>
                 <Phone size={16} className={styles.contactIcon} />
@@ -126,7 +126,7 @@ export default function Footer() {
               </div>
               <div className={styles.contactItem}>
                 <Clock size={16} className={styles.contactIcon} />
-                <span>Mon – Sat: 8:30 AM – 7:30 PM (IST)</span>
+                <span>Mon – Fri: 10.00 AM – 5 PM (IST) | Sat – Sun: 9 AM – 5 PM (IST)</span>
               </div>
             </div>
 
@@ -145,27 +145,27 @@ export default function Footer() {
                   textDecoration: 'underline',
                 }}
               >
-                <MapPin size={13} /> View on Google Maps
+                <MapPin size={13} /> View on Google Maps (Opp. Sankar DTP)
               </a>
             </div>
 
             {/* Social Community Badges */}
             <div className={styles.socialBadges}>
               <a
-                href="https://www.youtube.com"
+                href="https://www.youtube.com/@TRB_Coaching_Center"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialPill}
               >
-                <Video size={14} style={{ marginRight: 6 }} /> YouTube (Free PYQs)
+                <Video size={14} style={{ marginRight: 6 }} /> YouTube (@TRB_Coaching_Center)
               </a>
               <a
-                href="https://t.me/tidephysics"
+                href="https://t.me/tn_trb_exams"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialPill}
               >
-                <Send size={14} style={{ marginRight: 6 }} /> Telegram (25k+)
+                <Send size={14} style={{ marginRight: 6 }} /> Telegram (@tn_trb_exams)
               </a>
             </div>
           </div>

@@ -9,7 +9,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3005',
+    baseURL: 'http://localhost:3500',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -20,9 +20,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npx next start -p 3005',
-    url: 'http://localhost:3005',
-    reuseExistingServer: false,
+    command: 'node tide.js',
+    url: 'http://localhost:3500',
+    reuseExistingServer: true,
     timeout: 120000,
   },
 });
